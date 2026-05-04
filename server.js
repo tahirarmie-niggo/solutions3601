@@ -1,21 +1,37 @@
 const express = require('express');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const nodemailer = require('nodemailer');
 const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-const transporter = nodemailer.createTransport({
-  host: 'smtp-relay.brevo.com',
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.BREVO_USER,
-    pass: process.env.BREVO_PASS
-  }
-});
+const https = require('https');
+
+function sendEmail(to, subject, html) {
+  return new Promise((resolve, reject) => {
+    const toArray = Array.isArray(to) ? to.map(e => ({ email: e })) : [{ email: to }];
+    const data = JSON.stringify({
+      sender: { name: 'Solutions 360', email: 'solution360int@gmail.com' },
+      to: toArray,
+      subject: subject,
+      htmlContent: html
+    });
+    const req = https.request({
+      hostname: 'api.brevo.com',
+      path: '/v3/smtp/email',
+      method: 'POST',
+      headers: {
+        'api-key': process.env.BREVO_API_KEY,
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(data)
+      }
+    }, res => resolve(res.statusCode));
+    req.on('error', reject);
+    req.write(data);
+    req.end();
+  });
+}
 
 app.set('trust proxy', 1);
 app.use(helmet({ contentSecurityPolicy: false }));
@@ -98,19 +114,17 @@ app.post('/api/inquiry', inquiryLimiter, async (req, res) => {
     </div>`;
 
   try {
-    await transporter.sendMail({
-      from: '"Solutions 360" <solution360int@gmail.com>',
-      to: ['solution360int@gmail.com', 'tahirarmie@gmail.com'],
-      subject: `New Inquiry from ${name} — Solutions 360`,
-      html: adminHTML
-    });
+    await sendEmail(
+      ['solution360int@gmail.com', 'tahirarmie@gmail.com'],
+      `New Inquiry from ${name} — Solutions 360`,
+      adminHTML
+    );
 
-    await transporter.sendMail({
-      from: '"Solutions 360" <solution360int@gmail.com>',
-      to: email,
-      subject: 'We received your inquiry — Solutions 360',
-      html: studentHTML
-    });
+    await sendEmail(
+      email,
+      'We received your inquiry — Solutions 360',
+      studentHTML
+    );
 
     res.json({ success: true, message: 'Inquiry submitted! We will contact you within 24 hours.' });
   } catch (err) {
