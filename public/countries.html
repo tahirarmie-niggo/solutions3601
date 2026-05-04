@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countries — Solutions 360</title>
+<meta name="description" content="Explore study destinations worldwide. Solutions 360 helps Pakistani students study in UK, Canada, Australia, Germany, Italy and more.">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+.country-detail{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s}
+.country-detail:hover{box-shadow:0 12px 40px rgba(27,84,93,0.1);transform:translateY(-4px)}
+.country-header{background:var(--teal-dark);padding:28px;display:flex;align-items:center;gap:16px}
+.country-flag-lg{font-size:48px}
+.country-header h3{font-family:'Cormorant Garamond',serif;font-size:24px;color:#fff;font-weight:700;margin-bottom:4px}
+.country-header span{font-size:12px;color:var(--gold-light);letter-spacing:0.5px}
+.country-body{padding:24px}
+.country-body p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.country-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.tag{background:rgba(27,84,93,0.08);color:var(--teal);font-size:11px;padding:4px 10px;border-radius:20px;font-weight:500}
+.tag.gold{background:rgba(200,163,111,0.15);color:var(--gold-dark)}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<div class="page-hero">
+  <div class="section-tag light">Destinations</div>
+  <h1>Study Destinations</h1>
+  <p>Explore opportunities in 26+ countries worldwide</p>
+  <div class="breadcrumb"><a href="/">Home</a> <span>›</span> <span>Countries</span></div>
+</div>
+
+<div class="section">
+  <div class="wrap">
+    <div class="text-center reveal mb-44">
+      <div class="section-tag">Top Destinations</div>
+      <h2 class="section-h">Where Will Your Journey Take You?</h2>
+      <p class="section-p" style="max-width:560px;margin:0 auto">We have established partnerships and deep expertise across all major study destinations for Pakistani students.</p>
+    </div>
+
+    <div class="grid-2" style="gap:24px">
+
+      <div class="country-detail reveal" id="uk">
+        <div class="country-header"><span class="country-flag-lg">🇬🇧</span><div><h3>United Kingdom</h3><span>150+ Partner Universities</span></div></div>
+        <div class="country-body">
+          <p>The UK remains the most popular destination for Pakistani students. World-renowned universities, a rich academic culture, and post-study work visa options make it a top choice.</p>
+          <div class="country-tags">
+            <span class="tag">Post-Study Work Visa</span><span class="tag">Russell Group Unis</span>
+            <span class="tag gold">High Demand</span><span class="tag">Scholarships Available</span>
+          </div>
+          <a href="/contact" class="btn-teal" style="font-size:13px;padding:10px 20px">Apply for UK →</a>
+        </div>
+      </div>
+
+      <div class="country-detail reveal delay1" id="canada">
+        <div class="country-header"><span class="country-flag-lg">🇨🇦</span><div><h3>Canada</h3><span>100+ Partner Universities</span></div></div>
+        <div class="country-body">
+          <p>Canada offers affordable tuition, welcoming immigration policies, and excellent post-graduation work permits. A top choice for those seeking permanent residency pathways.</p>
+          <div class="country-tags">
+            <span class="tag">PR Pathway</span><span class="tag">PGWP Available</span>
+            <span class="tag gold">Budget Friendly</span><span class="tag">Safe & Diverse</span>
+          </div>
+          <a href="/contact" class="btn-teal" style="font-size:13px;padding:10px 20px">Apply for Canada →</a>
+        </div>
+      </div>
+
+      <div class="country-detail reveal" id="australia">
+        <div class="country-header"><span class="country-flag-lg">🇦🇺</span><div><h3>Australia</h3><span>80+ Partner Universities</span></div></div>
+        <div class="country-body">
+          <p>Australia's world-class universities, high quality of life, and strong employment market make it a dream destination for international students from Pakistan.</p>
+          <div class="country-tags">
+            <span class="tag">485 Graduate Visa</span><span class="tag">Group of Eight Unis</span>
+            <span class="tag gold">Part-time Work Allowed</span><span class="tag">Quality of Life</span>
+          </div>
+          <a href="/contact" class="btn-teal" style="font-size:13px;padding:10px 20px">Apply for Australia →</a>
+        </div>
+      </div>
+
+      <div class="country-detail reveal delay1" id="germany">
+        <div class="country-header"><span class="country-flag-lg">🇩🇪</span><div><h3>Germany</h3><span>50+ Partner Universities</span></div></div>
+        <div class="country-body">
+          <p>Germany offers tuition-free public university education, a powerful engineering and research culture, and a strong economy with excellent job prospects after graduation.</p>
+          <div class="country-tags">
+            <span class="tag">Free Tuition</span><span class="tag">Engineering Hub</span>
+            <span class="tag gold">Low Cost of Living</span><span class="tag">Job Seeker Visa</span>
+          </div>
+          <a href="/contact" class="btn-teal" style="font-size:13px;padding:10px 20px">Apply for Germany →</a>
+        </div>
+      </div>
+
+      <div class="country-detail reveal" id="italy">
+        <div class="country-header"><span class="country-flag-lg">🇮🇹</span><div><h3>Italy</h3><span>40+ Partner Universities</span></div></div>
+        <div class="country-body">
+          <p>Italy is popular for medicine, arts, architecture and fashion. Many English-taught programs available at very affordable tuition fees across historic universities.</p>
+          <div class="country-tags">
+            <span class="tag">Affordable Tuition</span><span class="tag">Medical Programs</span>
+            <span class="tag gold">Schengen Access</span><span class="tag">Cultural Experience</span>
+          </div>
+          <a href="/contact" class="btn-teal" style="font-size:13px;padding:10px 20px">Apply for Italy →</a>
+        </div>
+      </div>
+
+      <div class="country-detail reveal delay1" id="poland">
+        <div class="country-header"><span class="country-flag-lg">🇵🇱</span><div><h3>Poland</h3><span>30+ Partner Universities</span></div></div>
+        <div class="country-body">
+          <p>Poland has become a top destination for Pakistani medical students. Low tuition fees, EU-recognized degrees, and English-medium programs make it a smart choice.</p>
+          <div class="country-tags">
+            <span class="tag">Medical Degrees</span><span class="tag">EU Recognized</span>
+            <span class="tag gold">Very Affordable</span><span class="tag">Safe Country</span>
+          </div>
+          <a href="/contact" class="btn-teal" style="font-size:13px;padding:10px 20px">Apply for Poland →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- More countries grid -->
+    <div style="margin-top:48px">
+      <div class="text-center reveal mb-44">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--teal-dark)">More Destinations</h3>
+      </div>
+      <div class="grid-4">
+        <div class="country-card reveal"><span class="cc-flag">🇫🇷</span><div class="cc-name">France</div><div class="cc-sub">60+ Universities</div></div>
+        <div class="country-card reveal delay1"><span class="cc-flag">🇭🇺</span><div class="cc-name">Hungary</div><div class="cc-sub">Medical Focus</div></div>
+        <div class="country-card reveal delay2"><span class="cc-flag">🇲🇾</span><div class="cc-name">Malaysia</div><div class="cc-sub">Budget Friendly</div></div>
+        <div class="country-card reveal delay3"><span class="cc-flag">🇺🇸</span><div class="cc-name">United States</div><div class="cc-sub">200+ Universities</div></div>
+        <div class="country-card reveal"><span class="cc-flag">🇸🇪</span><div class="cc-name">Sweden</div><div class="cc-sub">Research Focus</div></div>
+        <div class="country-card reveal delay1"><span class="cc-flag">🇧🇪</span><div class="cc-name">Belgium</div><div class="cc-sub">EU Hub</div></div>
+        <div class="country-card reveal delay2"><span class="cc-flag">🇳🇱</span><div class="cc-name">Netherlands</div><div class="cc-sub">English Programs</div></div>
+        <div class="country-card reveal delay3"><span class="cc-flag">🇸🇨</span><div class="cc-name">Switzerland</div><div class="cc-sub">Business School</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section bg-light">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <div><h2>Not Sure Which Country Is Right for You?</h2><p>Book a free session and our experts will match you with the best destination for your goals and budget.</p></div>
+      <div class="cta-btns"><a href="/contact" class="btn-white">Get Free Advice</a><a href="/whatsapp" class="btn-outline-white">💬 WhatsApp</a></div>
+    </div>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="/js/components.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
