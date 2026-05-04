@@ -2,7 +2,16 @@ const express = require('express');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
-const { Resend } = require('resend');
+const nodemailer = require('nodemailer');
+const transporter = nodemailer.createTransport({
+  host: 'smtp-relay.brevo.com',
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.BREVO_USER,
+    pass: process.env.BREVO_PASS
+  }
+});
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -89,16 +98,16 @@ app.post('/api/inquiry', inquiryLimiter, async (req, res) => {
     </div>`;
 
   try {
-    await resend.emails.send({
-      from: 'Solutions 360 <onboarding@resend.dev>',
-      to: ['solution360int@gmail.com','tahirarmie@gmail.com'],
+    await transporter.sendMail({
+      from: '"Solutions 360" <solution360int@gmail.com>',
+      to: ['solution360int@gmail.com', 'tahirarmie@gmail.com'],
       subject: `New Inquiry from ${name} — Solutions 360`,
       html: adminHTML
     });
 
-    await resend.emails.send({
-      from: 'Solutions 360 <onboarding@resend.dev>',
-      to: [email],
+    await transporter.sendMail({
+      from: '"Solutions 360" <solution360int@gmail.com>',
+      to: email,
       subject: 'We received your inquiry — Solutions 360',
       html: studentHTML
     });
