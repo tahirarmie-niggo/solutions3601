@@ -91,7 +91,7 @@ app.post('/api/inquiry', inquiryLimiter, async (req, res) => {
   try {
     await resend.emails.send({
       from: 'Solutions 360 <onboarding@resend.dev>',
-      to: ['solution360int@gmail.com'],
+      to: ['solution360int@gmail.com','tahirarmie@gmail.com'],
       subject: `New Inquiry from ${name} — Solutions 360`,
       html: adminHTML
     });
