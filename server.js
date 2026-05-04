@@ -1,8 +1,12 @@
 const express = require('express');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const path = require('path');
 const nodemailer = require('nodemailer');
+const path = require('path');
+
+const app = express();
+const PORT = process.env.PORT || 8080;
+
 const transporter = nodemailer.createTransport({
   host: 'smtp-relay.brevo.com',
   port: 587,
@@ -12,10 +16,6 @@ const transporter = nodemailer.createTransport({
     pass: process.env.BREVO_PASS
   }
 });
-
-const app = express();
-const PORT = process.env.PORT || 8080;
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 app.set('trust proxy', 1);
 app.use(helmet({ contentSecurityPolicy: false }));
