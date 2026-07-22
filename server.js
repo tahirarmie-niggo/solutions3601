@@ -85,9 +85,14 @@ app.use(express.urlencoded({ extended: true, limit: '32kb' }));
    ------------------------------------------------------------------ */
 app.use(express.static(path.join(__dirname, 'public'), {
   extensions: ['html'],
-  maxAge: '7d',
+  maxAge: '30d',
   setHeaders: (res, filePath) => {
-    if (filePath.endsWith('.html')) res.setHeader('Cache-Control', 'no-cache');
+    // Never cache markup, styles or scripts — otherwise a deploy can
+    // sit invisible behind a stale browser cache for days.
+    // Images and fonts keep the long cache; they are versioned by name.
+    if (/\.(html|css|js|json|webmanifest|xml|txt)$/i.test(filePath)) {
+      res.setHeader('Cache-Control', 'no-cache, must-revalidate');
+    }
   }
 }));
 
