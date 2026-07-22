@@ -10,24 +10,46 @@
   --rule:rgba(200,163,111,.28);
 
   /* ---- IMAGE SLOTS -------------------------------------------------
-     Drop files into /public/img/ then uncomment the url().
-     Every slot falls back to a brand gradient, so nothing looks broken
-     while it's empty.
+     Live now: about, ceo(pending), country tiles, hero bands, mid-page
+     bands and CTA bands. Drop team photos into /public/img/ and
+     uncomment --img-t1..t8 when you have them; ceo.jpg is still a
+     placeholder gradient on purpose — see the chat note on stock CEO
+     photos.
      ------------------------------------------------------------------ */
-  --img-about:none;         /* url('/img/about.jpg')      1200x900 office */
-  --img-ceo:none;           /* url('/img/ceo.jpg')         800x1000 portrait */
-  --img-contact:none;       /* url('/img/office.jpg')     1200x800 */
+  --img-about:url('/img/about.webp');
+  --img-ceo:none;           /* url('/img/ceo.jpg')  800x1000 — use a real photo only */
+  --img-contact:none;       /* url('/img/office.jpg') 1200x800 — your real office */
 
-  --img-uk:none;            /* url('/img/uk.jpg')          800x600 */
-  --img-canada:none;
-  --img-australia:none;
-  --img-germany:none;
-  --img-italy:none;
-  --img-poland:none;
+  --img-uk:url('/img/uk.webp');
+  --img-canada:url('/img/canada.webp');
+  --img-australia:url('/img/australia.webp');
+  --img-germany:url('/img/germany.webp');
+  --img-italy:url('/img/italy.webp');
+  --img-poland:url('/img/poland.webp');
 
   --img-t1:none;            /* url('/img/team-1.jpg')      600x750 portraits */
   --img-t2:none; --img-t3:none; --img-t4:none;
   --img-t5:none; --img-t6:none; --img-t7:none; --img-t8:none;
+
+  /* page heroes */
+  --img-hero-home:url('/img/hero-home.webp');
+  --img-hero-about:url('/img/hero-about.webp');
+  --img-hero-team:url('/img/hero-team.webp');
+  --img-hero-countries:url('/img/hero-countries.webp');
+  --img-hero-courses:url('/img/hero-courses.webp');
+  --img-hero-stories:url('/img/hero-stories.webp');
+  --img-hero-contact:url('/img/hero-contact.webp');
+
+  /* mid-page texture bands */
+  --img-band-process:url('/img/band-process.webp');
+  --img-band-attest:url('/img/band-attest.webp');
+  --img-band-hiring:url('/img/band-hiring.webp');
+  --img-band-choose:url('/img/band-choose.webp');
+  --img-band-entry:url('/img/band-entry.webp');
+
+  /* closing CTA bands */
+  --img-cta-a:url('/img/cta-a.webp');
+  --img-cta-b:url('/img/cta-a.webp'); /* no second CTA shot supplied yet, reuses cta-a */
 }
 
 /* ============================================================
@@ -105,6 +127,69 @@
 }
 .s3-crumb a{color:var(--gold-light)}
 .s3-crumb a:hover{color:#fff}
+
+
+/* ============================================================
+   BACKGROUND-IMAGE MODIFIERS
+   Add one of these classes alongside .s3-hero / .s3-phero / .s3-sec.deep
+   / .s3-cta in the HTML to paint a photo behind that section. The teal
+   overlay sits on top automatically — no per-page CSS needed beyond
+   adding the class.
+   ============================================================ */
+.s3-hero.pg-home::before,
+.s3-phero.pg-about::before, .s3-phero.pg-team::before,
+.s3-phero.pg-countries::before, .s3-phero.pg-courses::before,
+.s3-phero.pg-stories::before, .s3-phero.pg-contact::before,
+.s3-sec.deep.band-process::before, .s3-sec.deep.band-attest::before,
+.s3-sec.deep.band-hiring::before, .s3-sec.deep.band-choose::before,
+.s3-sec.deep.band-entry::before,
+.s3-cta.cta-a::before, .s3-cta.cta-b::before{
+  content:'';position:absolute;inset:0;z-index:0;
+  background-size:cover;background-position:center;
+}
+.s3-hero.pg-home::after,
+.s3-phero.pg-about::after, .s3-phero.pg-team::after,
+.s3-phero.pg-countries::after, .s3-phero.pg-courses::after,
+.s3-phero.pg-stories::after, .s3-phero.pg-contact::after,
+.s3-sec.deep.band-process::after, .s3-sec.deep.band-attest::after,
+.s3-sec.deep.band-hiring::after, .s3-sec.deep.band-choose::after,
+.s3-sec.deep.band-entry::after,
+.s3-cta.cta-a::after, .s3-cta.cta-b::after{
+  content:'';position:absolute;inset:0;z-index:0;
+  background:linear-gradient(160deg, rgba(11,28,31,.90), rgba(18,58,65,.86));
+}
+.s3-hero.pg-home::before{background-image:var(--img-hero-home)}
+.s3-phero.pg-about::before{background-image:var(--img-hero-about)}
+.s3-phero.pg-team::before{background-image:var(--img-hero-team)}
+.s3-phero.pg-countries::before{background-image:var(--img-hero-countries)}
+.s3-phero.pg-courses::before{background-image:var(--img-hero-courses)}
+.s3-phero.pg-stories::before{background-image:var(--img-hero-stories)}
+.s3-phero.pg-contact::before{background-image:var(--img-hero-contact)}
+.s3-sec.deep.band-process::before{background-image:var(--img-band-process)}
+.s3-sec.deep.band-attest::before{background-image:var(--img-band-attest)}
+.s3-sec.deep.band-hiring::before{background-image:var(--img-band-hiring)}
+.s3-sec.deep.band-choose::before{background-image:var(--img-band-choose)}
+.s3-sec.deep.band-entry::before{background-image:var(--img-band-entry)}
+.s3-cta.cta-a::before{background-image:var(--img-cta-a)}
+.s3-cta.cta-b::before{background-image:var(--img-cta-b)}
+
+/* make sure the mesh svg + content sit above the new photo layers */
+.s3-hero.pg-home .s3-hero-mesh, .s3-hero.pg-home .s3-hero-inner,
+.s3-phero.pg-about .s3-phero-mesh, .s3-phero.pg-about .s3-phero-in,
+.s3-phero.pg-team .s3-phero-mesh, .s3-phero.pg-team .s3-phero-in,
+.s3-phero.pg-countries .s3-phero-mesh, .s3-phero.pg-countries .s3-phero-in,
+.s3-phero.pg-courses .s3-phero-mesh, .s3-phero.pg-courses .s3-phero-in,
+.s3-phero.pg-stories .s3-phero-mesh, .s3-phero.pg-stories .s3-phero-in,
+.s3-phero.pg-contact .s3-phero-mesh, .s3-phero.pg-contact .s3-phero-in,
+.s3-sec.deep.band-process .s3-head, .s3-sec.deep.band-process .s3-steps,
+.s3-sec.deep.band-attest .s3-head, .s3-sec.deep.band-attest .s3-attest, .s3-sec.deep.band-attest .s3-wrap,
+.s3-sec.deep.band-hiring .s3-split,
+.s3-sec.deep.band-choose .s3-head, .s3-sec.deep.band-choose .s3-steps,
+.s3-sec.deep.band-entry .s3-head, .s3-sec.deep.band-entry .s3-attest,
+.s3-cta.cta-a .s3-cta-mesh, .s3-cta.cta-a .s3-cta-inner,
+.s3-cta.cta-b .s3-cta-mesh, .s3-cta.cta-b .s3-cta-inner{
+  position:relative;z-index:1;
+}
 
 
 /* ============================================================
