@@ -178,7 +178,7 @@ function buildNav() {
     '<nav id="navbar">' +
       '<div class="nav-inner">' +
         '<a href="/" class="logo">' +
-          '<div class="logo-icon">S3</div>' +
+          '<img src="/img/logo.png" class="logo-icon" alt="Solutions 360" width="38" height="38">' +
           '<div class="logo-text">Solutions 360<span>Study Abroad Consultants</span></div>' +
         '</a>' +
         '<button class="s3burger" id="s3burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
@@ -194,7 +194,10 @@ function buildNav() {
 const FOOTER_HTML =
   '<footer><div class="footer-grid">' +
     '<div class="footer-brand">' +
-      '<div class="f-logo">Solutions 360<span>Study Abroad Consultants</span></div>' +
+      '<div class="f-brand-row">' +
+        '<img src="/img/logo.png" class="f-mark" alt="" width="44" height="44">' +
+        '<div class="f-logo">Solutions 360<span>Study Abroad Consultants</span></div>' +
+      '</div>' +
       '<p>An Islamabad consultancy handling university placement, document attestation and visa filing for Pakistani students.</p>' +
       '<div class="social-links">' +
         '<a href="/whatsapp" class="social-btn">WhatsApp</a>' +
