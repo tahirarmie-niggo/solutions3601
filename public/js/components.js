@@ -58,6 +58,29 @@ const I = {
   star:     ico('<path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8z"/>')
 };
 
+/* ---------- globe watermark for the dropdown panels ---------- */
+const GLOBE =
+  '<svg class="s3panel-globe" viewBox="0 0 400 400" fill="none" aria-hidden="true">' +
+    '<g stroke="rgba(200,163,111,.16)" stroke-width="1">' +
+      '<circle cx="200" cy="200" r="170"/><circle cx="200" cy="200" r="118"/>' +
+      '<ellipse cx="200" cy="200" rx="170" ry="58"/>' +
+      '<ellipse cx="200" cy="200" rx="170" ry="116"/>' +
+      '<path d="M30 200h340"/>' +
+    '</g>' +
+    '<g class="rot" stroke="rgba(200,163,111,.16)" stroke-width="1">' +
+      '<ellipse cx="200" cy="200" rx="58" ry="170"/>' +
+      '<ellipse cx="200" cy="200" rx="116" ry="170"/>' +
+      '<path d="M200 30v340"/>' +
+    '</g>' +
+    '<g fill="rgba(200,163,111,.34)">' +
+      '<circle cx="200" cy="30" r="3.5"/><circle cx="200" cy="370" r="3.5"/>' +
+      '<circle cx="30" cy="200" r="3.5"/><circle cx="370" cy="200" r="3.5"/>' +
+      '<circle cx="200" cy="200" r="4.5"/>' +
+      '<circle cx="118" cy="118" r="2.6"/><circle cx="282" cy="118" r="2.6"/>' +
+      '<circle cx="118" cy="282" r="2.6"/><circle cx="282" cy="282" r="2.6"/>' +
+    '</g>' +
+  '</svg>';
+
 /* ---------- menu data ---------- */
 const MENU = [
   { label: 'Home', href: '/' },
@@ -126,7 +149,7 @@ function buildNav() {
       return;
     }
     var panel =
-      '<div class="s3panel" id="s3panel-' + i + '"><div class="s3panel-in">' +
+      '<div class="s3panel" id="s3panel-' + i + '">' + GLOBE + '<div class="s3panel-in">' +
         '<div class="s3panel-lead">' +
           '<h4>' + m.lead.title + '</h4>' +
           '<p>' + m.lead.text + '</p>' +
