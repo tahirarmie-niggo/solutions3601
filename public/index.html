@@ -3,50 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solutions 360 — Study Abroad Consultants Pakistan</title>
-<meta name="description" content="Pakistan's trusted study abroad consultancy. Free counselling, visa assistance, and university placement in UK, Canada, Australia, Europe and more.">
-<link rel="icon" href="/favicon.ico"> <link rel="stylesheet" href="/css/style.css">
-  <script>document.documentElement.classList.add('s3-loading');setTimeout(function(){document.documentElement.classList.remove('s3-loading')},7000);</script>
+<title>Solutions 360 — Study Abroad Consultants, Islamabad</title>
+<meta name="description" content="Islamabad-based study abroad consultancy. University placement, visa filing and document attestation for Pakistani students applying to the UK, Canada, Australia and Europe.">
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/home.css">
+<script>document.documentElement.classList.add('s3-loading');setTimeout(function(){document.documentElement.classList.remove('s3-loading')},7000);</script>
 </head>
 <body>
 <div id="nav-placeholder"></div>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-orb orb1"></div>
-  <div class="hero-orb orb2"></div>
-  <div class="hero-orb orb3"></div>
-  <div class="hero-grid">
+<!-- ================= HERO ================= -->
+<section class="s3-hero">
+  <svg class="s3-hero-mesh" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+    <g stroke="var(--mesh)" stroke-width="1">
+      <circle cx="200" cy="200" r="170"/>
+      <circle cx="200" cy="200" r="128"/>
+      <ellipse cx="200" cy="200" rx="170" ry="62"/>
+      <ellipse cx="200" cy="200" rx="170" ry="120"/>
+      <ellipse cx="200" cy="200" rx="62" ry="170"/>
+      <ellipse cx="200" cy="200" rx="120" ry="170"/>
+      <path d="M30 200h340M200 30v340"/>
+      <path d="M80 90 L320 310M320 90 L80 310"/>
+    </g>
+    <g fill="var(--gold)" opacity=".5">
+      <circle cx="200" cy="30" r="3.5"/><circle cx="200" cy="370" r="3.5"/>
+      <circle cx="30" cy="200" r="3.5"/><circle cx="370" cy="200" r="3.5"/>
+      <circle cx="200" cy="200" r="4.5"/>
+      <circle cx="120" cy="120" r="3"/><circle cx="280" cy="120" r="3"/>
+      <circle cx="120" cy="280" r="3"/><circle cx="280" cy="280" r="3"/>
+    </g>
+  </svg>
+
+  <div class="s3-hero-inner">
     <div>
-      <div class="hero-eyebrow"><div class="hero-dot"></div>Pakistan's Trusted Consultants</div>
-      <h1>Your Gateway to a <span class="accent">World-Class</span> Education Abroad</h1>
-      <p>Expert guidance for Pakistani students seeking to study in the UK, Europe, Canada, Australia, and beyond. Personalized counselling, visa support, and university placement.</p>
-      <div class="hero-btns">
-        <a href="/contact" class="btn-gold">Book Free Counselling →</a>
-        <a href="/countries" class="btn-ghost">Explore Countries</a>
+      <div class="s3-eyebrow light">Islamabad &middot; Est. serving Pakistan</div>
+      <h1>Study abroad without<em>guessing your way there.</em></h1>
+      <p>We handle university selection, applications, document attestation and visa filing for Pakistani students — so you deal with one team instead of six offices.</p>
+
+      <div class="s3-hero-btns">
+        <a href="/contact" class="btn-gold">Book free counselling</a>
+        <a href="/countries" class="btn-ghost">See destinations</a>
       </div>
-      <div class="trust-row">
-        <div class="trust-avs">
-          <div class="av">SA</div><div class="av">AK</div><div class="av">FN</div><div class="av">MR</div>
-        </div>
-        <div class="trust-txt"><strong>1,000+ students placed</strong>across 26 countries worldwide</div>
+
+      <div class="s3-creds">
+        <span class="s3-cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg>HEC attestation</span>
+        <span class="s3-cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>IBCC equivalence</span>
+        <span class="s3-cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg>Embassy legalisation</span>
+        <span class="s3-cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16v13H4z"/><path d="M9 7V4h6v3M9 13h6"/></svg>Apostille &amp; translation</span>
       </div>
     </div>
+
+    <!-- lead form: unchanged IDs so your existing submitHeroForm() keeps working -->
     <div class="form-card">
-      <h3>Get Free Assessment</h3>
-      <p class="form-sub">Takes <span>2 minutes</span> — 100% free, no commitment</p>
+      <h3>Free profile assessment</h3>
+      <p class="form-sub">Takes <span>2 minutes</span> — no fee, no obligation</p>
       <div class="fg-row">
-        <div class="fg"><label>Age Range</label>
+        <div class="fg"><label>Age range</label>
           <select id="h-age"><option value="">Select</option><option>16 to 21</option><option>22 to 28</option><option>29 or above</option></select>
         </div>
-        <div class="fg"><label>Degree</label>
+        <div class="fg"><label>Degree level</label>
           <select id="h-degree"><option value="">Select</option><option>Undergraduate</option><option>Postgraduate</option></select>
         </div>
       </div>
-      <div class="fg"><label>Full Name</label><input type="text" id="h-name" placeholder="Your full name"></div>
+      <div class="fg"><label>Full name</label><input type="text" id="h-name" placeholder="Your full name"></div>
       <div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="h-phone" placeholder="+92 300 0000000"></div>
-      <div class="fg"><label>Email Address</label><input type="email" id="h-email" placeholder="your@email.com"></div>
-      <div class="fg"><label>Preferred Country</label>
+      <div class="fg"><label>Email</label><input type="email" id="h-email" placeholder="your@email.com"></div>
+      <div class="fg"><label>Preferred country</label>
         <select id="h-country">
           <option value="">Select country</option>
           <option>United Kingdom</option><option>Canada</option><option>Australia</option>
@@ -54,147 +77,223 @@
           <option>Poland</option><option>Hungary</option><option>Malaysia</option><option>Other</option>
         </select>
       </div>
-      <button class="submit-btn" id="h-submit" onclick="submitHeroForm()">Get Free Expert Advice →</button>
+      <button class="submit-btn" id="h-submit" onclick="submitHeroForm()">Request my assessment</button>
       <div class="form-msg" id="h-msg"></div>
-      <p class="form-note">🔒 Your information is 100% confidential</p>
+      <p class="form-note">Your details stay with our counselling team.</p>
     </div>
   </div>
-</div>
+</section>
 
-<!-- STATS -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="stat-item reveal"><div class="stat-num">1,000+</div><div class="stat-label">Students Placed</div></div>
-    <div class="stat-item reveal delay1"><div class="stat-num">26+</div><div class="stat-label">Countries Covered</div></div>
-    <div class="stat-item reveal delay2"><div class="stat-num">100+</div><div class="stat-label">Partner Universities</div></div>
-    <div class="stat-item reveal delay3"><div class="stat-num">98%</div><div class="stat-label">Visa Success Rate</div></div>
+<!-- ================= STATS ================= -->
+<section class="s3-stats">
+  <div class="s3-stats-inner">
+    <div class="s3-stat reveal">
+      <div class="s3-stat-n">1,000<span>+</span></div>
+      <div class="s3-stat-l">Students placed since we opened</div>
+    </div>
+    <div class="s3-stat reveal delay1">
+      <div class="s3-stat-n">26</div>
+      <div class="s3-stat-l">Countries we file applications into</div>
+    </div>
+    <div class="s3-stat reveal delay2">
+      <div class="s3-stat-n">100<span>+</span></div>
+      <div class="s3-stat-l">Partner universities on our desk</div>
+    </div>
+    <div class="s3-stat reveal delay3">
+      <div class="s3-stat-n">98<span>%</span></div>
+      <div class="s3-stat-l">Visa approval rate on filed cases</div>
+    </div>
   </div>
-</div>
+</section>
 
-<!-- ABOUT -->
-<div class="section">
-  <div class="wrap">
-    <div class="grid-2">
-      <div class="reveal">
-        <div style="background:var(--teal-dark);border-radius:16px;height:320px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-          <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="100" cy="100" r="90" stroke="#c8a36f" stroke-width="0.5" stroke-dasharray="4 4"/>
-            <circle cx="100" cy="100" r="60" stroke="#c8a36f" stroke-width="0.5" stroke-dasharray="2 6"/>
-            <path d="M65 110 L100 65 L135 110 L120 110 L120 135 L80 135 L80 110 Z" fill="rgba(200,163,111,0.25)" stroke="#c8a36f" stroke-width="1.5"/>
-            <rect x="88" y="118" width="24" height="17" fill="rgba(200,163,111,0.4)" stroke="#c8a36f" stroke-width="1"/>
-            <circle cx="100" cy="82" r="7" fill="#c8a36f" opacity="0.6"/>
-            <path d="M70 155 Q100 140 130 155" stroke="#c8a36f" stroke-width="1" fill="none" opacity="0.4"/>
-          </svg>
-          <div style="position:absolute;bottom:-16px;right:-16px;background:#fff;border-radius:12px;padding:18px 22px;box-shadow:0 12px 40px rgba(0,0,0,0.15);border:1px solid var(--border);">
-            <div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--teal);line-height:1">98%</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:4px">Visa Success Rate</div>
-          </div>
-        </div>
-      </div>
-      <div class="reveal delay2">
-        <div class="section-tag">About Solutions 360</div>
-        <h2 class="section-h">We Turn Study Abroad Dreams Into Reality</h2>
-        <p class="section-p">Solutions 360 is Islamabad's trusted study abroad consultancy. We provide comprehensive guidance to Pakistani students navigating the journey of international education — from course selection to visa approval and beyond.</p>
-        <ul style="list-style:none;margin-bottom:28px">
-          <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;font-size:14px;color:var(--text)"><span style="width:20px;height:20px;background:var(--teal);border-radius:50%;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff">✓</span>Free personalized one-on-one counselling sessions</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;font-size:14px;color:var(--text)"><span style="width:20px;height:20px;background:var(--teal);border-radius:50%;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff">✓</span>Expert visa guidance with 98% success rate</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;font-size:14px;color:var(--text)"><span style="width:20px;height:20px;background:var(--teal);border-radius:50%;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff">✓</span>Partnerships with 100+ top universities worldwide</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text)"><span style="width:20px;height:20px;background:var(--teal);border-radius:50%;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff">✓</span>Post-arrival support and accommodation services</li>
-        </ul>
-        <a href="/about" class="btn-teal">Learn More About Us →</a>
+<!-- ================= ABOUT ================= -->
+<section class="s3-sec">
+  <div class="s3-split">
+    <div class="reveal">
+      <div class="s3-frame">
+        <div class="s3-frame-badge"><b>98%</b><span>Visa approval rate</span></div>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- SERVICES -->
-<div class="section bg-light">
-  <div class="wrap">
-    <div class="text-center reveal mb-44">
-      <div class="section-tag">What We Offer</div>
-      <h2 class="section-h">Comprehensive Study Abroad Services</h2>
-      <p class="section-p" style="max-width:520px;margin:0 auto">Everything you need to successfully study abroad — under one roof.</p>
-    </div>
-    <div class="grid-3">
-      <div class="svc-card reveal"><div class="svc-icon">🎓</div><h4>Free Counselling</h4><p>One-on-one sessions with certified counselors to map your ideal academic path abroad.</p><a href="/contact" class="svc-link">Book now →</a></div>
-      <div class="svc-card reveal delay1"><div class="svc-icon">📋</div><h4>Visa Assistance</h4><p>Expert guidance through complex visa requirements — we've helped hundreds get approved.</p><a href="/contact" class="svc-link">Learn more →</a></div>
-      <div class="svc-card reveal delay2"><div class="svc-icon">🏛</div><h4>University Placement</h4><p>We match you with the best universities aligned to your academic background and goals.</p><a href="/countries" class="svc-link">View options →</a></div>
-      <div class="svc-card reveal"><div class="svc-icon">💰</div><h4>Scholarship Guidance</h4><p>Discover and apply for scholarships that can significantly reduce your financial burden.</p><a href="/contact" class="svc-link">Get started →</a></div>
-      <div class="svc-card reveal delay1"><div class="svc-icon">📚</div><h4>Course Selection</h4><p>Find courses aligned with your career ambitions across medicine, business, engineering, and more.</p><a href="/courses" class="svc-link">Browse courses →</a></div>
-      <div class="svc-card reveal delay2"><div class="svc-icon">🏠</div><h4>Accommodation</h4><p>Safe, affordable housing near your university for a smooth and stress-free transition abroad.</p><a href="/contact" class="svc-link">Ask us →</a></div>
+    <div class="reveal delay2">
+      <div class="s3-eyebrow">Who we are</div>
+      <h2 class="s3-display">A consultancy that files the paperwork, <em>not just the advice.</em></h2>
+      <p class="s3-lede">Most students lose months bouncing between an agent, an attestation office and a translator. We keep the whole file in one place — from shortlisting universities to the day your visa is stamped.</p>
+      <ul class="s3-check">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12l5 5L20 6"/></svg>One-to-one counselling before you pay anything</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12l5 5L20 6"/></svg>HEC, IBCC and embassy attestation handled in-house</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12l5 5L20 6"/></svg>Direct application routes to 100+ universities</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12l5 5L20 6"/></svg>Accommodation and arrival support once you land</li>
+      </ul>
+      <a href="/about" class="btn-teal">More about us</a>
     </div>
   </div>
-</div>
+</section>
 
-<!-- COUNTRIES -->
-<div class="section">
-  <div class="wrap">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px" class="reveal">
-      <div><div class="section-tag">Destinations</div><h2 class="section-h" style="margin-bottom:0">Study Anywhere in the World</h2></div>
-      <a href="/countries" class="btn-gold">View All Countries</a>
+<!-- ================= SERVICES ================= -->
+<section class="s3-sec cream">
+  <div class="wrap text-center reveal" style="margin-bottom:42px">
+    <div class="s3-eyebrow" style="justify-content:center">What we do</div>
+    <h2 class="s3-display">Everything between your transcript <em>and your boarding pass</em></h2>
+  </div>
+  <div class="s3-grid3">
+    <div class="s3-card reveal">
+      <div class="s3-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4L2 9l10 5 10-5-10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg></div>
+      <h4>Counselling</h4>
+      <p>A proper sit-down about your grades, budget and what you actually want to do — before anyone mentions a university.</p>
+      <a href="/contact">Book a session &rarr;</a>
     </div>
-    <div class="grid-4">
-      <div class="country-card reveal"><span class="cc-flag">🇬🇧</span><div class="cc-name">United Kingdom</div><div class="cc-sub">150+ Universities</div></div>
-      <div class="country-card reveal delay1"><span class="cc-flag">🇨🇦</span><div class="cc-name">Canada</div><div class="cc-sub">100+ Universities</div></div>
-      <div class="country-card reveal delay2"><span class="cc-flag">🇦🇺</span><div class="cc-name">Australia</div><div class="cc-sub">80+ Universities</div></div>
-      <div class="country-card reveal delay3"><span class="cc-flag">🇩🇪</span><div class="cc-name">Germany</div><div class="cc-sub">50+ Universities</div></div>
-      <div class="country-card reveal"><span class="cc-flag">🇮🇹</span><div class="cc-name">Italy</div><div class="cc-sub">40+ Universities</div></div>
-      <div class="country-card reveal delay1"><span class="cc-flag">🇫🇷</span><div class="cc-name">France</div><div class="cc-sub">60+ Universities</div></div>
-      <div class="country-card reveal delay2"><span class="cc-flag">🇺🇸</span><div class="cc-name">United States</div><div class="cc-sub">200+ Universities</div></div>
-      <div class="country-card reveal delay3"><span class="cc-flag">🇵🇱</span><div class="cc-name">Poland</div><div class="cc-sub">30+ Universities</div></div>
+    <div class="s3-card reveal delay1">
+      <div class="s3-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><circle cx="8.5" cy="14" r="2"/><path d="M14 13h4M14 16h3"/></svg></div>
+      <h4>Visa filing</h4>
+      <p>Financial documents, sponsor letters, interview prep and the submission itself. We file it, we track it.</p>
+      <a href="/contact">How it works &rarr;</a>
+    </div>
+    <div class="s3-card reveal delay2">
+      <div class="s3-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M10 21v-6h4v6"/></svg></div>
+      <h4>University placement</h4>
+      <p>Shortlists built around your marks and your budget, not around whichever university pays the biggest commission.</p>
+      <a href="/countries">See destinations &rarr;</a>
+    </div>
+    <div class="s3-card reveal">
+      <div class="s3-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5h4a1.8 1.8 0 010 3.6h-3a1.8 1.8 0 000 3.6h4"/></svg></div>
+      <h4>Scholarships &amp; funding</h4>
+      <p>Merit awards, fee waivers and country-specific funding you're eligible for — and an honest read on your chances.</p>
+      <a href="/contact">Check eligibility &rarr;</a>
+    </div>
+    <div class="s3-card reveal delay1">
+      <div class="s3-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2 2 0 016 4h5v16H6a2 2 0 01-2-2z"/><path d="M20 5.5A2 2 0 0018 4h-5v16h5a2 2 0 002-2z"/></svg></div>
+      <h4>Course selection</h4>
+      <p>Medicine, engineering, business, IT — matched to entry requirements you can actually meet this intake.</p>
+      <a href="/courses">Browse courses &rarr;</a>
+    </div>
+    <div class="s3-card reveal delay2">
+      <div class="s3-card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 4l9 6.5"/><path d="M5 10v10h14V10"/><path d="M9 20v-5h6v5"/><path d="M15 7V4h3v5"/></svg></div>
+      <h4>Accommodation</h4>
+      <p>Vetted student housing near campus, booked before you fly, so you're not searching for a room in a new country.</p>
+      <a href="/contact">Ask about housing &rarr;</a>
     </div>
   </div>
-</div>
+</section>
 
-<!-- HOW IT WORKS -->
-<div class="process-wrap">
-  <div class="wrap">
-    <div class="text-center reveal mb-44">
-      <div class="section-tag light">How It Works</div>
-      <h2 class="section-h white">Your Journey in 4 Simple Steps</h2>
+<!-- ================= DESTINATIONS ================= -->
+<section class="s3-sec">
+  <div class="wrap reveal" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:32px">
+    <div>
+      <div class="s3-eyebrow">Destinations</div>
+      <h2 class="s3-display" style="margin-bottom:0">Where our students go</h2>
     </div>
-    <div class="steps-grid">
-      <div class="step reveal"><div class="step-circle">01</div><h4>Free Consultation</h4><p>Book a free session with one of our expert counselors to discuss your goals and options.</p></div>
-      <div class="step reveal delay1"><div class="step-circle">02</div><h4>Profile Assessment</h4><p>We evaluate your academic background and recommend the best universities for you.</p></div>
-      <div class="step reveal delay2"><div class="step-circle">03</div><h4>Application & Docs</h4><p>We prepare and submit your university applications with complete document support.</p></div>
-      <div class="step reveal delay3"><div class="step-circle">04</div><h4>Visa & Departure</h4><p>We guide you through visa approval and provide pre-departure orientation briefing.</p></div>
+    <a href="/countries" class="btn-outline">All 26 countries</a>
+  </div>
+  <div class="s3-dest">
+    <a href="/countries" class="s3-place uk reveal">
+      <div class="s3-place-n">United Kingdom</div>
+      <div class="s3-place-s">150+ universities &middot; 2-year work visa</div>
+    </a>
+    <a href="/countries" class="s3-place ca reveal delay1">
+      <div class="s3-place-n">Canada</div>
+      <div class="s3-place-s">100+ universities &middot; PGWP route</div>
+    </a>
+    <a href="/countries" class="s3-place au reveal delay2">
+      <div class="s3-place-n">Australia</div>
+      <div class="s3-place-s">80+ universities &middot; post-study work</div>
+    </a>
+    <a href="/countries" class="s3-place de reveal delay3">
+      <div class="s3-place-n">Germany</div>
+      <div class="s3-place-s">50+ universities &middot; low tuition</div>
+    </a>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="s3-sec deep">
+  <div class="wrap reveal" style="margin-bottom:34px">
+    <div class="s3-eyebrow light">The process</div>
+    <h2 class="s3-display light">Four stages, <em>in this order</em></h2>
+  </div>
+  <div class="s3-steps">
+    <div class="s3-step reveal">
+      <div class="s3-step-n">01</div>
+      <div><h4>Free consultation</h4><p>You tell us your marks, budget and timeline. We tell you honestly which countries are realistic and which aren't.</p></div>
+    </div>
+    <div class="s3-step reveal delay1">
+      <div class="s3-step-n">02</div>
+      <div><h4>Profile assessment &amp; shortlist</h4><p>We review transcripts, IELTS scores and gaps in your academic record, then build a shortlist of universities you'll get into.</p></div>
+    </div>
+    <div class="s3-step reveal delay2">
+      <div class="s3-step-n">03</div>
+      <div><h4>Applications &amp; attestation</h4><p>Documents go for HEC and IBCC attestation while applications are submitted. Both run in parallel so you don't lose an intake.</p></div>
+    </div>
+    <div class="s3-step reveal delay3">
+      <div class="s3-step-n">04</div>
+      <div><h4>Visa filing &amp; departure</h4><p>Financial documents prepared, interview practised, visa filed. Then a pre-departure briefing before you fly.</p></div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- TESTIMONIALS -->
-<div class="section bg-light">
-  <div class="wrap">
-    <div class="text-center reveal mb-44">
-      <div class="section-tag">Testimonials</div>
-      <h2 class="section-h">What Our Students Say</h2>
-    </div>
-    <div class="grid-3">
-      <div class="testi-card reveal"><div class="stars">★★★★★</div><span class="quote-mark">"</span><p>Solutions 360 guided me through every step of getting into my dream university in London. Their counselors genuinely care about student success.</p><div class="t-author"><div class="t-av">SA</div><div><div class="t-name">Sarah Ahmed</div><div class="t-role">Studying in London, UK</div></div></div></div>
-      <div class="testi-card reveal delay1"><div class="stars">★★★★★</div><span class="quote-mark">"</span><p>The visa process felt impossible until Solutions 360 stepped in. They handled everything and I received my UK visa approval within 3 weeks!</p><div class="t-author"><div class="t-av">AK</div><div><div class="t-name">Asad Khan</div><div class="t-role">Studying in Toronto, Canada</div></div></div></div>
-      <div class="testi-card reveal delay2"><div class="stars">★★★★★</div><span class="quote-mark">"</span><p>I'm now studying medicine in Hungary on a scholarship. Solutions 360 found opportunities I didn't know existed. Truly a life-changing experience.</p><div class="t-author"><div class="t-av">FN</div><div><div class="t-name">Fatima Noor</div><div class="t-role">Studying Medicine, Budapest</div></div></div></div>
-    </div>
-    <div style="text-align:center;margin-top:36px"><a href="/success-stories" class="btn-outline">View All Success Stories →</a></div>
-  </div>
-</div>
-
-<!-- CTA -->
-<div class="section">
-  <div class="wrap">
-    <div class="cta-box reveal">
-      <div>
-        <h2>Ready to Begin Your Journey?</h2>
-        <p>Book a free counselling session today. No fees, no commitment — just honest, expert advice.</p>
+<!-- ================= CEO MESSAGE ================= -->
+<section class="s3-sec cream">
+  <div class="s3-ceo">
+    <div class="reveal"><div class="s3-ceo-photo"></div></div>
+    <div class="reveal delay2">
+      <div class="s3-eyebrow">From the founder</div>
+      <p class="s3-quote">Families here are spending their savings on this. The least we owe them is a straight answer about what is possible.</p>
+      <p>I started Solutions 360 after watching too many students in Islamabad pay an agent, wait eight months, and end up with a rejection letter and no explanation. Most of those cases were never going to work — someone just took the fee anyway.</p>
+      <p>We do it differently. If your profile isn't strong enough for the country you're asking about, we say so in the first meeting. If it is, we show you exactly what the file needs and how long each stage takes. That's the whole business.</p>
+      <div class="s3-sign">
+        <b>[Founder name]</b>
+        <span>Founder &amp; Chief Executive</span>
       </div>
-      <div class="cta-btns">
-        <a href="/contact" class="btn-white">Book Free Session</a>
-        <a href="/whatsapp" class="btn-outline-white">💬 WhatsApp Us</a>
-      </div>
     </div>
   </div>
-</div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="s3-sec">
+  <div class="wrap text-center reveal" style="margin-bottom:36px">
+    <div class="s3-eyebrow" style="justify-content:center">Student voices</div>
+    <h2 class="s3-display">People who went through it</h2>
+  </div>
+  <div class="s3-voices">
+    <div class="s3-voice reveal">
+      <p class="s3-voice-q">They told me in the first meeting that my first-choice university was out of reach, and explained why. No other office had said that. The one they suggested instead accepted me.</p>
+      <div class="s3-voice-w"><div class="s3-voice-av">SA</div><div><div class="s3-voice-n">Sarah Ahmed</div><div class="s3-voice-r">London, United Kingdom</div></div></div>
+    </div>
+    <div class="s3-voice reveal delay1">
+      <p class="s3-voice-q">The visa file was the part I was dreading. They prepared the financial documents, ran two mock interviews with me, and the approval came through in three weeks.</p>
+      <div class="s3-voice-w"><div class="s3-voice-av">AK</div><div><div class="s3-voice-n">Asad Khan</div><div class="s3-voice-r">Toronto, Canada</div></div></div>
+    </div>
+    <div class="s3-voice reveal delay2">
+      <p class="s3-voice-q">I'm studying medicine in Budapest on a partial scholarship I didn't know existed. They found it while going through my file.</p>
+      <div class="s3-voice-w"><div class="s3-voice-av">FN</div><div><div class="s3-voice-n">Fatima Noor</div><div class="s3-voice-r">Budapest, Hungary</div></div></div>
+    </div>
+  </div>
+  <div class="text-center" style="margin-top:34px">
+    <a href="/success-stories" class="btn-outline">Read more stories</a>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="s3-cta">
+  <svg class="s3-cta-mesh" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+    <g stroke="var(--gold)" stroke-width="1">
+      <circle cx="200" cy="200" r="170"/><circle cx="200" cy="200" r="110"/>
+      <ellipse cx="200" cy="200" rx="170" ry="70"/>
+      <ellipse cx="200" cy="200" rx="70" ry="170"/>
+      <path d="M30 200h340M200 30v340"/>
+    </g>
+  </svg>
+  <div class="s3-cta-inner">
+    <h2>Find out where you stand — free</h2>
+    <p>A counsellor will go through your marks, budget and timeline and tell you which countries are realistic. No fee for the first session.</p>
+    <div class="s3-cta-btns">
+      <a href="/contact" class="btn-gold">Book free counselling</a>
+      <a href="/whatsapp" class="btn-outline-white">Message on WhatsApp</a>
+    </div>
+  </div>
+</section>
 
 <div id="footer-placeholder"></div>
+
 <script src="/js/components.js"></script>
 <script src="/js/app.js"></script>
 <script>
@@ -210,7 +309,7 @@ async function submitHeroForm() {
     country: document.getElementById('h-country').value
   };
   if (!data.name || !data.email || !data.phone) {
-    showMsg(msg, 'error', 'Please fill in your name, email and phone.');
+    showMsg(msg, 'error', 'Add your name, email and phone so we can reach you.');
     return;
   }
   btn.disabled = true; btn.textContent = 'Sending...';
@@ -218,11 +317,11 @@ async function submitHeroForm() {
     const res = await fetch('/api/inquiry', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
     const result = await res.json();
     showMsg(msg, result.success ? 'success' : 'error', result.message);
-    if (result.success) btn.textContent = '✓ Sent!';
-    else { btn.disabled = false; btn.textContent = 'Get Free Expert Advice →'; }
+    if (result.success) btn.textContent = 'Request sent';
+    else { btn.disabled = false; btn.textContent = 'Request my assessment'; }
   } catch(e) {
-    showMsg(msg, 'error', 'Something went wrong. Please try again.');
-    btn.disabled = false; btn.textContent = 'Get Free Expert Advice →';
+    showMsg(msg, 'error', 'That did not go through. Try again, or message us on WhatsApp.');
+    btn.disabled = false; btn.textContent = 'Request my assessment';
   }
 }
 </script>
