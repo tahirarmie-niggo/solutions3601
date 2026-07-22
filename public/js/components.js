@@ -9,7 +9,13 @@ const FOOTER_HTML = '<footer><div class="footer-grid"><div class="footer-brand">
   if (!root.classList.contains('s3-loading')) return;
   document.body.insertAdjacentHTML('afterbegin', LOADER_HTML);
 
+  var MIN_MS = 1400;                // guaranteed minimum display time
+  if (sessionStorage.getItem('s3seen')) MIN_MS = 0;   // only full loader on first view
+  else sessionStorage.setItem('s3seen', '1');
+
+  var start = Date.now();
   var done = false;
+
   function hide() {
     if (done) return;
     done = true;
@@ -20,9 +26,14 @@ const FOOTER_HTML = '<footer><div class="footer-grid"><div class="footer-brand">
     setTimeout(function () { el.remove(); }, 500);
   }
 
-  if (document.readyState === 'complete') setTimeout(hide, 400);
-  else window.addEventListener('load', function () { setTimeout(hide, 400); });
-  setTimeout(hide, 6000); // safety net
+  function finish() {
+    setTimeout(hide, Math.max(0, MIN_MS - (Date.now() - start)));
+  }
+
+  if (document.readyState === 'complete') finish();
+  else window.addEventListener('load', finish);
+
+  setTimeout(hide, 6000);           // safety net
 })();
 
 function injectLayout() {
