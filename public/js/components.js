@@ -128,6 +128,7 @@ const MENU = [
     ]
   },
   { label: 'Success stories', href: '/success-stories' },
+  { label: 'Track your file', href: '/tracking' },
   { label: 'Contact', href: '/contact' }
 ];
 
@@ -217,6 +218,7 @@ const FOOTER_HTML =
       '<a href="tel:+923144441280">+92 314 444 1280</a>' +
       '<a href="mailto:solution360int@gmail.com">solution360int@gmail.com</a>' +
       '<a href="/contact">Islamabad, Pakistan</a>' +
+      '<a href="/tracking">Track your file</a>' +
       '<a href="/whatsapp" class="wa-link">Chat on WhatsApp</a>' +
     '</div>' +
   '</div>' +
