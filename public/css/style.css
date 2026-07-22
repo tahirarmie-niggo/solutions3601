@@ -229,3 +229,23 @@ footer{background:var(--dark);padding:56px 0 24px}
   .section-h{font-size:30px}
   .topbar-inner{flex-direction:column;text-align:center}
 }
+/* ===== PAGE LOADER ===== */
+html.s3-loading body{overflow:hidden}
+html.s3-loading body > *:not(#s3-loader){visibility:hidden}
+#s3-loader{position:fixed;inset:0;z-index:99999;background:var(--bg);display:flex;align-items:center;justify-content:center;transition:opacity .45s ease}
+#s3-loader.s3-out{opacity:0;pointer-events:none}
+#s3-loader svg{width:150px;height:150px;animation:s3lEnter .4s ease-out both}
+@keyframes s3lEnter{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.s3l-ring,.s3l-arc,.s3l-lon{transform-box:view-box;transform-origin:120px 120px}
+.s3l-ring{animation:s3lCw 3s linear infinite}
+.s3l-arc{animation:s3lCcw 2s linear infinite}
+.s3l-lon{animation:s3lTurn 2.6s ease-in-out infinite}
+.s3l-lon:nth-of-type(3){animation-delay:-1.3s}
+@keyframes s3lCw{to{transform:rotate(360deg)}}
+@keyframes s3lCcw{to{transform:rotate(-360deg)}}
+@keyframes s3lTurn{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.08)}}
+@media(prefers-reduced-motion:reduce){
+  .s3l-ring,.s3l-arc,.s3l-lon{animation:none!important}
+  #s3-loader svg{animation:s3lPulse 1.8s ease-in-out infinite}
+  @keyframes s3lPulse{0%,100%{opacity:.5}50%{opacity:1}}
+}
