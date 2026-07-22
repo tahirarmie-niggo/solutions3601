@@ -179,13 +179,24 @@
     rgba(248,245,240,.96) 100%);
 }
 
-/* content always rides above both layers */
-.s3-hero[class*="pg-"] > *,
-.s3-phero[class*="pg-"] > *,
-.s3-sec.deep[class*="band-"] > *,
-.s3-cta[class*="cta-"] > *,
-.s3-sec.cream[class*="tex-"] > *{
+/* content always rides above both layers.
+   NOTE: :not(svg) matters — the decorative mesh SVGs are already
+   position:absolute, and forcing them to relative turns them into
+   in-flow flex items that shove the real content sideways. */
+.s3-hero[class*="pg-"] > *:not(svg),
+.s3-phero[class*="pg-"] > *:not(svg),
+.s3-sec.deep[class*="band-"] > *:not(svg),
+.s3-cta[class*="cta-"] > *:not(svg),
+.s3-sec.cream[class*="tex-"] > *:not(svg){
   position:relative;z-index:1;
+}
+/* lift the decorative SVGs without disturbing their positioning */
+.s3-hero[class*="pg-"] > svg,
+.s3-phero[class*="pg-"] > svg,
+.s3-sec.deep[class*="band-"] > svg,
+.s3-cta[class*="cta-"] > svg,
+.s3-sec.cream[class*="tex-"] > svg{
+  z-index:1;
 }
 
 /* ---- which photo goes where ---- */
@@ -217,13 +228,13 @@
 .s3-sec.cream.tex-team::before{background-image:var(--img-hero-team)}
 
 /* ---- give the photo room to read ---- */
-.s3-hero[class*="pg-"]{min-height:560px;display:flex;align-items:center}
-.s3-phero[class*="pg-"]{min-height:340px;display:flex;align-items:center}
+.s3-hero[class*="pg-"]{min-height:560px;display:flex;align-items:center;justify-content:center}
+.s3-phero[class*="pg-"]{min-height:340px;display:flex;align-items:center;justify-content:center}
 .s3-sec.deep[class*="band-"]{min-height:420px;display:flex;flex-direction:column;justify-content:center}
-.s3-cta[class*="cta-"]{min-height:360px;display:flex;align-items:center}
+.s3-cta[class*="cta-"]{min-height:360px;display:flex;align-items:center;justify-content:center}
 .s3-hero[class*="pg-"] > .s3-hero-inner,
 .s3-cta[class*="cta-"] > .s3-cta-inner,
-.s3-phero[class*="pg-"] > .s3-phero-in{width:100%}
+.s3-phero[class*="pg-"] > .s3-phero-in{width:100%;flex:0 1 auto}
 
 @media(max-width:940px){
   .s3-hero[class*="pg-"]{min-height:0;display:block}
