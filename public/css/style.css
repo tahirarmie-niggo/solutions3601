@@ -249,3 +249,127 @@ html.s3-loading body > *:not(#s3-loader){visibility:hidden}
   #s3-loader svg{animation:s3lPulse 1.8s ease-in-out infinite}
   @keyframes s3lPulse{0%,100%{opacity:.5}50%{opacity:1}}
 }
+/* ============================================================
+   APPEND THIS TO THE END OF public/css/style.css
+   (keep the PAGE LOADER block you already added)
+   ============================================================ */
+
+/* ---------- nav shell ---------- */
+nav{background:var(--teal);position:sticky;top:0;z-index:1000;transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.25)}
+.nav-inner{position:relative}
+
+.s3nav-wrap{display:flex;align-items:center;gap:8px}
+.s3nav{display:flex;list-style:none;align-items:center;gap:2px;margin:0;padding:0}
+.s3nav-li{position:static}
+
+.s3nav-link{
+  display:inline-flex;align-items:center;gap:5px;
+  background:none;border:none;cursor:pointer;
+  font-family:'Inter',sans-serif;font-size:13px;
+  color:rgba(255,255,255,.82);
+  padding:9px 13px;border-radius:4px;
+  transition:color .2s,background .2s;
+}
+.s3nav-link:hover{color:#fff;background:rgba(255,255,255,.09)}
+.s3nav-li.current > .s3nav-link{color:var(--gold)}
+.s3nav-caret{width:13px;height:13px;transition:transform .25s ease;opacity:.65}
+.s3nav-li.open .s3nav-caret{transform:rotate(180deg)}
+.s3nav-li.open > .s3nav-link{color:#fff;background:rgba(255,255,255,.09)}
+
+.s3nav-cta{
+  background:var(--gold);color:var(--teal-dark);
+  font-size:13px;font-weight:600;padding:9px 17px;border-radius:4px;
+  margin-left:8px;white-space:nowrap;transition:background .2s;
+}
+.s3nav-cta:hover{background:var(--gold-light)}
+
+/* ---------- dropdown panel ---------- */
+.s3panel{
+  position:absolute;left:0;right:0;top:100%;
+  background:#fff;border-top:1px solid var(--border);
+  box-shadow:0 22px 48px rgba(11,28,31,.16);
+  opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:opacity .22s ease,transform .22s ease,visibility .22s;
+  z-index:1001;
+}
+.s3nav-li.open .s3panel{opacity:1;visibility:visible;transform:translateY(0)}
+
+.s3panel-in{
+  max-width:1100px;margin:0 auto;padding:32px 24px 34px;
+  display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;
+}
+.s3panel-lead h4{
+  font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:700;
+  color:var(--teal-dark);margin-bottom:9px;
+}
+.s3panel-lead p{font-size:13px;line-height:1.75;color:var(--muted);margin-bottom:16px}
+.s3panel-lead a{
+  font-size:12px;font-weight:600;color:var(--gold-dark);letter-spacing:.03em;
+}
+.s3panel-lead a:hover{color:var(--teal)}
+
+.s3panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.s3panel-item{
+  display:flex;gap:13px;align-items:flex-start;
+  padding:13px 14px;border-radius:5px;transition:background .18s;
+}
+.s3panel-item:hover{background:var(--bg)}
+.s3panel-ico{
+  width:30px;height:30px;flex-shrink:0;color:var(--teal);
+  display:flex;align-items:center;justify-content:center;
+}
+.s3panel-ico svg{width:100%;height:100%}
+.s3panel-item b{display:block;font-size:13.5px;font-weight:600;color:var(--teal-dark);margin-bottom:3px}
+.s3panel-item em{display:block;font-style:normal;font-size:12px;line-height:1.6;color:var(--muted)}
+
+/* ---------- burger ---------- */
+.s3burger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:6px;
+}
+.s3burger span{
+  display:block;width:22px;height:2px;background:#fff;border-radius:2px;
+  transition:transform .3s,opacity .2s;
+}
+.s3burger.x span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.s3burger.x span:nth-child(2){opacity:0}
+.s3burger.x span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ---------- mobile ---------- */
+@media(max-width:900px){
+  .s3burger{display:flex}
+  .s3nav-wrap{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--teal-dark);padding:10px 16px 20px;
+    max-height:calc(100vh - 64px);overflow-y:auto;
+    box-shadow:0 20px 40px rgba(0,0,0,.3);
+  }
+  .s3nav-wrap.open{display:flex}
+  .s3nav{flex-direction:column;align-items:stretch;gap:0}
+  .s3nav-link{
+    width:100%;justify-content:space-between;
+    padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.08);
+    border-radius:0;font-size:14px;
+  }
+  .s3nav-link:hover{background:none}
+  .s3nav-li.open > .s3nav-link{background:none;color:var(--gold)}
+
+  .s3panel{
+    position:static;opacity:1;visibility:hidden;transform:none;
+    box-shadow:none;border:none;background:transparent;
+    max-height:0;overflow:hidden;transition:max-height .3s ease,visibility .3s;
+  }
+  .s3nav-li.open .s3panel{visibility:visible;max-height:900px}
+  .s3panel-in{grid-template-columns:1fr;gap:0;padding:4px 0 12px}
+  .s3panel-lead{display:none}
+  .s3panel-grid{grid-template-columns:1fr;gap:0}
+  .s3panel-item{padding:11px 8px;border-radius:4px}
+  .s3panel-item:hover{background:rgba(255,255,255,.06)}
+  .s3panel-ico{width:22px;height:22px;color:var(--gold)}
+  .s3panel-item b{color:#fff;font-size:13px}
+  .s3panel-item em{color:rgba(255,255,255,.5);font-size:11.5px}
+
+  .s3nav-cta{margin:16px 0 0;text-align:center;padding:13px}
+}
