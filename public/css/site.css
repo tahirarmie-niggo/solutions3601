@@ -18,7 +18,7 @@
      ------------------------------------------------------------------ */
   --img-about:url('/img/about.webp');
   --img-ceo:none;           /* url('/img/ceo.jpg')  800x1000 — use a real photo only */
-  --img-contact:none;       /* url('/img/office.jpg') 1200x800 — your real office */
+  --img-contact:url('/img/hero-team.webp');  /* stand-in — swap for your real office photo */
 
   --img-uk:url('/img/uk.webp');
   --img-canada:url('/img/canada.webp');
@@ -86,7 +86,7 @@
 .s3-lede{font-family:var(--font-body);font-size:15px;line-height:1.85;color:var(--muted);max-width:56ch}
 .s3-lede.light{color:rgba(255,255,255,.62)}
 
-.s3-sec{padding:clamp(56px,8vw,96px) 0}
+.s3-sec{position:relative;padding:clamp(56px,8vw,96px) 0}
 .s3-sec.cream{background:var(--bg)}
 .s3-sec.deep{background:var(--teal-dark)}
 .s3-sec.tight{padding:clamp(40px,5vw,64px) 0}
@@ -131,33 +131,64 @@
 
 /* ============================================================
    BACKGROUND-IMAGE MODIFIERS
-   Add one of these classes alongside .s3-hero / .s3-phero / .s3-sec.deep
-   / .s3-cta in the HTML to paint a photo behind that section. The teal
-   overlay sits on top automatically — no per-page CSS needed beyond
-   adding the class.
+   ------------------------------------------------------------
+   .pg-*    → full-bleed photo on a hero (dark overlay)
+   .band-*  → full-bleed photo on a deep teal section
+   .cta-*   → full-bleed photo on a closing CTA
+   .tex-*   → faint photo wash on a light/cream section
+   Sections are position:relative + overflow:hidden so the image
+   layer can never change their height.
    ============================================================ */
-.s3-hero.pg-home::before,
-.s3-phero.pg-about::before, .s3-phero.pg-team::before,
-.s3-phero.pg-countries::before, .s3-phero.pg-courses::before,
-.s3-phero.pg-stories::before, .s3-phero.pg-contact::before,
-.s3-sec.deep.band-process::before, .s3-sec.deep.band-attest::before,
-.s3-sec.deep.band-hiring::before, .s3-sec.deep.band-choose::before,
-.s3-sec.deep.band-entry::before,
-.s3-cta.cta-a::before, .s3-cta.cta-b::before{
+
+/* every section that can carry a photo must contain its own layers */
+.s3-hero,.s3-phero,.s3-cta,
+.s3-sec.deep,.s3-sec.cream{
+  position:relative;overflow:hidden;
+}
+
+/* the photo layer */
+.s3-hero[class*="pg-"]::before,
+.s3-phero[class*="pg-"]::before,
+.s3-sec.deep[class*="band-"]::before,
+.s3-cta[class*="cta-"]::before,
+.s3-sec.cream[class*="tex-"]::before{
   content:'';position:absolute;inset:0;z-index:0;
   background-size:cover;background-position:center;
+  background-repeat:no-repeat;
 }
-.s3-hero.pg-home::after,
-.s3-phero.pg-about::after, .s3-phero.pg-team::after,
-.s3-phero.pg-countries::after, .s3-phero.pg-courses::after,
-.s3-phero.pg-stories::after, .s3-phero.pg-contact::after,
-.s3-sec.deep.band-process::after, .s3-sec.deep.band-attest::after,
-.s3-sec.deep.band-hiring::after, .s3-sec.deep.band-choose::after,
-.s3-sec.deep.band-entry::after,
-.s3-cta.cta-a::after, .s3-cta.cta-b::after{
+
+/* the tint layer — dark sections */
+.s3-hero[class*="pg-"]::after,
+.s3-phero[class*="pg-"]::after,
+.s3-sec.deep[class*="band-"]::after,
+.s3-cta[class*="cta-"]::after{
   content:'';position:absolute;inset:0;z-index:0;
-  background:linear-gradient(160deg, rgba(11,28,31,.90), rgba(18,58,65,.86));
+  background:linear-gradient(160deg,rgba(11,28,31,.91),rgba(18,58,65,.87));
 }
+.s3-cta[class*="cta-"]::after{
+  background:linear-gradient(160deg,rgba(27,84,93,.90),rgba(18,58,65,.88));
+}
+
+/* light sections: photo sits back at low opacity under a cream wash */
+.s3-sec.cream[class*="tex-"]::before{opacity:.14}
+.s3-sec.cream[class*="tex-"]::after{
+  content:'';position:absolute;inset:0;z-index:0;
+  background:linear-gradient(180deg,
+    rgba(248,245,240,.94) 0%,
+    rgba(248,245,240,.88) 45%,
+    rgba(248,245,240,.96) 100%);
+}
+
+/* content always rides above both layers */
+.s3-hero[class*="pg-"] > *,
+.s3-phero[class*="pg-"] > *,
+.s3-sec.deep[class*="band-"] > *,
+.s3-cta[class*="cta-"] > *,
+.s3-sec.cream[class*="tex-"] > *{
+  position:relative;z-index:1;
+}
+
+/* ---- which photo goes where ---- */
 .s3-hero.pg-home::before{background-image:var(--img-hero-home)}
 .s3-phero.pg-about::before{background-image:var(--img-hero-about)}
 .s3-phero.pg-team::before{background-image:var(--img-hero-team)}
@@ -165,30 +196,40 @@
 .s3-phero.pg-courses::before{background-image:var(--img-hero-courses)}
 .s3-phero.pg-stories::before{background-image:var(--img-hero-stories)}
 .s3-phero.pg-contact::before{background-image:var(--img-hero-contact)}
+
 .s3-sec.deep.band-process::before{background-image:var(--img-band-process)}
 .s3-sec.deep.band-attest::before{background-image:var(--img-band-attest)}
 .s3-sec.deep.band-hiring::before{background-image:var(--img-band-hiring)}
 .s3-sec.deep.band-choose::before{background-image:var(--img-band-choose)}
 .s3-sec.deep.band-entry::before{background-image:var(--img-band-entry)}
+
 .s3-cta.cta-a::before{background-image:var(--img-cta-a)}
 .s3-cta.cta-b::before{background-image:var(--img-cta-b)}
 
-/* make sure the mesh svg + content sit above the new photo layers */
-.s3-hero.pg-home .s3-hero-mesh, .s3-hero.pg-home .s3-hero-inner,
-.s3-phero.pg-about .s3-phero-mesh, .s3-phero.pg-about .s3-phero-in,
-.s3-phero.pg-team .s3-phero-mesh, .s3-phero.pg-team .s3-phero-in,
-.s3-phero.pg-countries .s3-phero-mesh, .s3-phero.pg-countries .s3-phero-in,
-.s3-phero.pg-courses .s3-phero-mesh, .s3-phero.pg-courses .s3-phero-in,
-.s3-phero.pg-stories .s3-phero-mesh, .s3-phero.pg-stories .s3-phero-in,
-.s3-phero.pg-contact .s3-phero-mesh, .s3-phero.pg-contact .s3-phero-in,
-.s3-sec.deep.band-process .s3-head, .s3-sec.deep.band-process .s3-steps,
-.s3-sec.deep.band-attest .s3-head, .s3-sec.deep.band-attest .s3-attest, .s3-sec.deep.band-attest .s3-wrap,
-.s3-sec.deep.band-hiring .s3-split,
-.s3-sec.deep.band-choose .s3-head, .s3-sec.deep.band-choose .s3-steps,
-.s3-sec.deep.band-entry .s3-head, .s3-sec.deep.band-entry .s3-attest,
-.s3-cta.cta-a .s3-cta-mesh, .s3-cta.cta-a .s3-cta-inner,
-.s3-cta.cta-b .s3-cta-mesh, .s3-cta.cta-b .s3-cta-inner{
-  position:relative;z-index:1;
+/* mid-page light sections */
+.s3-sec.cream.tex-services::before{background-image:var(--img-band-entry)}
+.s3-sec.cream.tex-values::before{background-image:var(--img-band-hiring)}
+.s3-sec.cream.tex-founder::before{background-image:var(--img-band-attest)}
+.s3-sec.cream.tex-fields::before{background-image:var(--img-hero-courses)}
+.s3-sec.cream.tex-more::before{background-image:var(--img-hero-countries)}
+.s3-sec.cream.tex-record::before{background-image:var(--img-band-process)}
+.s3-sec.cream.tex-faq::before{background-image:var(--img-band-choose)}
+.s3-sec.cream.tex-team::before{background-image:var(--img-hero-team)}
+
+/* ---- give the photo room to read ---- */
+.s3-hero[class*="pg-"]{min-height:560px;display:flex;align-items:center}
+.s3-phero[class*="pg-"]{min-height:340px;display:flex;align-items:center}
+.s3-sec.deep[class*="band-"]{min-height:420px;display:flex;flex-direction:column;justify-content:center}
+.s3-cta[class*="cta-"]{min-height:360px;display:flex;align-items:center}
+.s3-hero[class*="pg-"] > .s3-hero-inner,
+.s3-cta[class*="cta-"] > .s3-cta-inner,
+.s3-phero[class*="pg-"] > .s3-phero-in{width:100%}
+
+@media(max-width:940px){
+  .s3-hero[class*="pg-"]{min-height:0;display:block}
+  .s3-phero[class*="pg-"]{min-height:260px}
+  .s3-sec.deep[class*="band-"]{min-height:0;display:block}
+  .s3-cta[class*="cta-"]{min-height:0;display:block}
 }
 
 
