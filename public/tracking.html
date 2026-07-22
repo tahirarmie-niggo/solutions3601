@@ -8,68 +8,330 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..700,0..100,0..1&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/site.css">
 <script>document.documentElement.classList.add('s3-loading');setTimeout(function(){document.documentElement.classList.remove('s3-loading')},7000);</script>
+
+<style>
+/* ============================================================
+   Self-contained styling for this page.
+   Every value falls back, so the page renders correctly even if
+   style.css / site.css are an older version.
+   ============================================================ */
+.trk{
+  --t:var(--teal,#1b545d);
+  --td:var(--teal-dark,#123a41);
+  --tl:var(--teal-light,#246b76);
+  --g:var(--gold,#c8a36f);
+  --gl:var(--gold-light,#dfc49a);
+  --gd:var(--gold-dark,#a07d4f);
+  --pg:var(--bg,#f8f5f0);
+  --bd:var(--border,#e0d8cc);
+  --mut:var(--muted,#5a7a7e);
+  --ink:var(--text,#1a2e31);
+  --fd:var(--font-display,'Fraunces',Georgia,serif);
+  --fb:var(--font-body,'Archivo','Helvetica Neue',sans-serif);
+  --ok:#2d6e50;
+  --warn:#a07d4f;
+  --bad:#a34a3e;
+}
+
+/* ---------- hero ---------- */
+.trk-hero{
+  position:relative;overflow:hidden;background:var(--td);
+  padding:clamp(52px,7vw,78px) 0 clamp(88px,10vw,116px);
+}
+.trk-hero::before{
+  content:'';position:absolute;inset:0;
+  background:url('/img/band-process.webp') center/cover no-repeat;
+}
+.trk-hero::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(160deg,rgba(11,28,31,.91),rgba(18,58,65,.87));
+}
+.trk-hero-in{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:0 24px}
+.trk-eyebrow{
+  display:inline-flex;align-items:center;gap:9px;font-family:var(--fb);
+  font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gl);margin-bottom:16px;
+}
+.trk-eyebrow::before{content:'';width:22px;height:1px;background:var(--g)}
+.trk-hero h1{
+  font-family:var(--fd);font-variation-settings:'SOFT' 50,'WONK' 1;
+  font-weight:600;font-size:clamp(30px,5vw,50px);line-height:1.08;
+  letter-spacing:-.025em;color:#fff;margin:0 0 14px;
+}
+.trk-hero p{
+  font-family:var(--fb);font-size:15px;line-height:1.8;
+  color:rgba(255,255,255,.62);max-width:50ch;margin:0;
+}
+.trk-crumb{
+  display:flex;gap:8px;align-items:center;margin-top:22px;
+  font-family:var(--fb);font-size:11.5px;color:rgba(255,255,255,.4);
+}
+.trk-crumb a{color:var(--gl);text-decoration:none}
+.trk-crumb a:hover{color:#fff}
+.trk-mesh{
+  position:absolute;top:50%;right:-6%;transform:translateY(-50%);
+  width:min(460px,52vw);opacity:.5;pointer-events:none;z-index:2;
+}
+
+/* ---------- shell ---------- */
+.trk-wrap{max-width:680px;margin:0 auto;padding:0 24px 80px}
+
+/* ---------- search ---------- */
+.trk-card{
+  background:#fff;border:1px solid var(--bd);border-radius:3px;
+  padding:clamp(22px,3vw,30px);
+  box-shadow:0 16px 44px rgba(11,28,31,.10);
+  margin-top:-64px;position:relative;z-index:3;
+}
+.trk-tabs{
+  display:flex;border:1px solid var(--bd);border-radius:2px;
+  overflow:hidden;margin-bottom:18px;
+}
+.trk-tab{
+  flex:1;padding:11px 8px;cursor:pointer;border:none;background:#fff;
+  font-family:var(--fb);font-size:12.5px;font-weight:600;letter-spacing:.03em;
+  color:var(--mut);transition:background .22s,color .22s;
+}
+.trk-tab:hover{color:var(--t)}
+.trk-tab.active{background:var(--t);color:#fff}
+
+.trk-row{display:flex;gap:9px}
+.trk-row input{
+  flex:1;font-family:var(--fb);font-size:15px;padding:13px 15px;
+  border:1.5px solid var(--bd);border-radius:2px;background:var(--pg);
+  color:var(--ink);transition:border-color .2s,box-shadow .2s;
+}
+.trk-row input:focus{
+  outline:none;border-color:var(--t);box-shadow:0 0 0 3px rgba(27,84,93,.09);
+}
+.trk-row button{
+  background:var(--g);color:var(--td);border:none;border-radius:2px;
+  padding:0 26px;font-family:var(--fb);font-size:13.5px;font-weight:600;
+  cursor:pointer;white-space:nowrap;transition:background .22s,transform .22s;
+}
+.trk-row button:hover:not(:disabled){background:var(--gl);transform:translateY(-1px)}
+.trk-row button:disabled{opacity:.55;cursor:default;transform:none}
+.trk-hint{font-family:var(--fb);font-size:12px;line-height:1.6;color:var(--mut);margin:12px 0 0}
+
+.trk-status{
+  text-align:center;font-family:var(--fb);font-size:13.5px;
+  color:var(--mut);padding:24px 0 0;min-height:20px;
+}
+.trk-status.err{color:var(--bad)}
+
+/* ---------- result ---------- */
+.trk-res{
+  background:#fff;border:1px solid var(--bd);border-radius:3px;
+  overflow:hidden;margin-top:22px;
+  animation:trkIn .5s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes trkIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+.trk-res-top{
+  background:var(--td);padding:18px 22px;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.trk-id{font-family:var(--fd);font-variation-settings:'SOFT' 40,'WONK' 1;
+  font-size:20px;font-weight:600;color:#fff}
+.trk-id b{
+  display:block;font-family:var(--fb);font-size:9.5px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--gl);
+  margin-bottom:4px;opacity:.85;
+}
+.trk-pill{
+  display:inline-block;padding:6px 13px;border-radius:2px;font-family:var(--fb);
+  font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;white-space:nowrap;
+}
+.st-0{background:rgba(163,74,62,.16);color:#e0a79e}
+.st-1{background:rgba(200,163,111,.22);color:var(--gl)}
+.st-2{background:rgba(45,110,80,.22);color:#8fd0ae}
+
+/* ---------- stage tracker ---------- */
+.trk-stages{padding:30px 22px 26px;border-bottom:1px solid var(--bd);background:var(--pg)}
+.trk-stage-head{
+  font-family:var(--fb);font-size:9.5px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--mut);margin-bottom:22px;
+}
+.trk-track{position:relative;display:grid;grid-template-columns:repeat(3,1fr)}
+.trk-track::before{
+  content:'';position:absolute;top:13px;left:16.66%;right:16.66%;
+  height:2px;background:var(--bd);
+}
+.trk-track::after{
+  content:'';position:absolute;top:13px;left:16.66%;height:2px;
+  background:var(--g);width:var(--fill,0%);
+  transition:width .9s cubic-bezier(.2,.7,.2,1);
+}
+.trk-node{position:relative;z-index:1;text-align:center}
+.trk-dot{
+  width:28px;height:28px;border-radius:50%;margin:0 auto 12px;
+  background:#fff;border:2px solid var(--bd);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .4s,border-color .4s,transform .4s;
+}
+.trk-dot svg{width:13px;height:13px;stroke:#fff;opacity:0;transition:opacity .3s}
+.trk-node.done .trk-dot{background:var(--g);border-color:var(--g)}
+.trk-node.done .trk-dot svg{opacity:1}
+.trk-node.now .trk-dot{
+  border-color:var(--g);background:#fff;
+  box-shadow:0 0 0 5px rgba(200,163,111,.20);
+}
+.trk-node.now .trk-dot::after{
+  content:'';width:9px;height:9px;border-radius:50%;background:var(--g);
+  animation:trkPulse 1.8s ease-in-out infinite;
+}
+@keyframes trkPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.25);opacity:.65}}
+.trk-node b{
+  display:block;font-family:var(--fb);font-size:11.5px;font-weight:600;
+  color:var(--mut);letter-spacing:.01em;
+}
+.trk-node.done b,.trk-node.now b{color:var(--td)}
+.trk-node span{
+  display:block;font-family:var(--fb);font-size:10px;color:var(--mut);
+  margin-top:3px;opacity:.8;
+}
+
+/* ---------- payment bar ---------- */
+.trk-pay{padding:26px 22px;border-bottom:1px solid var(--bd)}
+.trk-pay-top{
+  display:flex;justify-content:space-between;align-items:baseline;
+  gap:14px;flex-wrap:wrap;margin-bottom:14px;
+}
+.trk-pay-top b{
+  font-family:var(--fb);font-size:9.5px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--mut);
+}
+.trk-pct{
+  font-family:var(--fd);font-variation-settings:'SOFT' 40,'WONK' 1;
+  font-size:24px;font-weight:600;color:var(--td);letter-spacing:-.02em;
+}
+.trk-pct small{font-family:var(--fb);font-size:11px;font-weight:600;color:var(--mut);margin-left:5px}
+.trk-bar{
+  height:9px;border-radius:99px;background:var(--bd);overflow:hidden;position:relative;
+}
+.trk-bar i{
+  display:block;height:100%;border-radius:99px;
+  background:linear-gradient(90deg,var(--gd),var(--g));
+  width:var(--pct,0%);
+  transition:width 1.1s cubic-bezier(.2,.7,.2,1);
+}
+.trk-bar.full i{background:linear-gradient(90deg,#2d6e50,#4c9c74)}
+.trk-bar-legend{
+  display:flex;justify-content:space-between;margin-top:10px;
+  font-family:var(--fb);font-size:11.5px;color:var(--mut);
+}
+.trk-bar-legend s{text-decoration:none;color:var(--td);font-weight:600}
+
+/* ---------- amounts ---------- */
+.trk-amounts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd)}
+.trk-amt{background:#fff;padding:17px 10px;text-align:center}
+.trk-amt b{
+  display:block;font-family:var(--fb);font-size:9.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--mut);
+}
+.trk-amt span{
+  display:block;font-family:var(--fd);font-variation-settings:'SOFT' 40,'WONK' 1;
+  font-size:19px;font-weight:600;color:var(--td);margin-top:7px;letter-spacing:-.01em;
+}
+.trk-amt.p span{color:var(--ok)}
+.trk-amt.d span{color:var(--bad)}
+
+/* ---------- detail rows ---------- */
+.trk-rows{padding:6px 22px 20px}
+.trk-line{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:13px 0;border-bottom:1px solid var(--bd);font-family:var(--fb);font-size:13.5px;
+}
+.trk-line:last-child{border-bottom:none}
+.trk-line b{color:var(--mut);font-weight:400}
+.trk-line span{font-weight:600;color:var(--td);text-align:right}
+.pay-0{background:#fff;color:var(--bad);box-shadow:inset 0 0 0 1px #c88c82}
+.pay-1{background:#fff;color:var(--gd);box-shadow:inset 0 0 0 1px var(--g)}
+.pay-2{background:#fff;color:var(--ok);box-shadow:inset 0 0 0 1px #7fae95}
+
+.trk-help{
+  margin-top:34px;padding-top:26px;border-top:1px solid var(--bd);
+  font-family:var(--fb);font-size:13px;line-height:1.8;color:var(--mut);
+}
+.trk-help a{color:var(--gd);font-weight:600;text-decoration:none}
+.trk-help a:hover{color:var(--t)}
+
+@media(max-width:560px){
+  .trk-mesh{display:none}
+  .trk-row{flex-direction:column}
+  .trk-row button{padding:14px 26px}
+  .trk-amounts{grid-template-columns:1fr}
+  .trk-line{flex-direction:column;align-items:flex-start;gap:5px}
+  .trk-line span{text-align:left}
+  .trk-node b{font-size:10.5px}
+  .trk-node span{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .trk-bar i,.trk-track::after,.trk-res{transition:none;animation:none}
+  .trk-node.now .trk-dot::after{animation:none}
+}
+</style>
 </head>
-<body>
+<body class="trk">
 <div id="nav-placeholder"></div>
 
 <!-- ===== HERO ===== -->
-<section class="s3-phero pg-track">
-  <svg class="s3-phero-mesh" viewBox="0 0 400 400" fill="none" aria-hidden="true">
-    <g stroke="var(--mesh)" stroke-width="1">
+<section class="trk-hero">
+  <svg class="trk-mesh" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+    <g stroke="rgba(200,163,111,.16)" stroke-width="1">
       <circle cx="200" cy="200" r="170"/><circle cx="200" cy="200" r="118"/>
       <ellipse cx="200" cy="200" rx="170" ry="58"/><ellipse cx="200" cy="200" rx="170" ry="116"/>
       <ellipse cx="200" cy="200" rx="58" ry="170"/><ellipse cx="200" cy="200" rx="116" ry="170"/>
       <path d="M30 200h340M200 30v340"/>
     </g>
-    <g fill="rgba(200,163,111,.32)">
+    <g fill="rgba(200,163,111,.34)">
       <circle cx="200" cy="30" r="3.5"/><circle cx="200" cy="370" r="3.5"/>
       <circle cx="30" cy="200" r="3.5"/><circle cx="370" cy="200" r="3.5"/><circle cx="200" cy="200" r="4.5"/>
     </g>
   </svg>
-  <div class="s3-phero-in">
-    <div class="s3-eyebrow light">Client portal</div>
+  <div class="trk-hero-in">
+    <div class="trk-eyebrow">Client portal</div>
     <h1>Track your file</h1>
-    <p>Enter the tracking ID we gave you to see where your file stands and what has been paid.</p>
-    <nav class="s3-crumb"><a href="/">Home</a><span>/</span><span>Track your file</span></nav>
+    <p>Enter the tracking ID we gave you to see which stage your file has reached and what has been paid.</p>
+    <nav class="trk-crumb"><a href="/">Home</a><span>/</span><span>Track your file</span></nav>
   </div>
 </section>
 
 <!-- ===== LOOKUP ===== -->
-<section class="s3-sec" style="padding-top:0">
-  <div class="s3-track">
+<div class="trk-wrap">
 
-    <div class="s3-track-card reveal">
-      <div class="s3-tabs" role="tablist">
-        <button class="s3-tab active" data-mode="trackingId" role="tab" aria-selected="true">Tracking ID</button>
-        <button class="s3-tab" data-mode="cnic" role="tab" aria-selected="false">CNIC</button>
-      </div>
-
-      <div class="s3-track-row">
-        <input id="searchInput" type="text" placeholder="e.g. 360sol0001" autocomplete="off"
-               aria-label="Tracking ID or CNIC" spellcheck="false">
-        <button id="searchBtn" type="button">Search</button>
-      </div>
-
-      <p class="s3-hint" id="hint">Enter the tracking ID we gave you when your file was opened.</p>
+  <div class="trk-card">
+    <div class="trk-tabs" role="tablist">
+      <button class="trk-tab active" data-mode="trackingId" role="tab" aria-selected="true">Tracking ID</button>
+      <button class="trk-tab" data-mode="cnic" role="tab" aria-selected="false">CNIC</button>
     </div>
-
-    <div id="status" class="s3-status" role="status" aria-live="polite"></div>
-    <div id="results"></div>
-
-    <div class="s3-track-help">
-      <p>Lost your tracking ID, or something here does not look right? Message us on
-      <a href="/whatsapp">WhatsApp</a> or call <a href="tel:+923144441280">+92&nbsp;314&nbsp;444&nbsp;1280</a>
-      and we will check the file for you. Office hours are Monday to Saturday, 11:00&nbsp;AM to 6:00&nbsp;PM.</p>
+    <div class="trk-row">
+      <input id="searchInput" type="text" placeholder="e.g. 360sol0001"
+             autocomplete="off" spellcheck="false" aria-label="Tracking ID or CNIC">
+      <button id="searchBtn" type="button">Search</button>
     </div>
-
+    <p class="trk-hint" id="hint">Enter the tracking ID we gave you when your file was opened.</p>
   </div>
-</section>
+
+  <div id="status" class="trk-status" role="status" aria-live="polite"></div>
+  <div id="results"></div>
+
+  <div class="trk-help">
+    <p>Lost your tracking ID, or something here does not look right? Message us on
+    <a href="/whatsapp">WhatsApp</a> or call <a href="tel:+923144441280">+92&nbsp;314&nbsp;444&nbsp;1280</a>
+    and we will check the file for you. Office hours are Monday to Saturday, 11:00&nbsp;AM to 6:00&nbsp;PM.</p>
+  </div>
+
+</div>
 
 <div id="footer-placeholder"></div>
 
@@ -79,133 +341,158 @@
 (function () {
   'use strict';
 
-  /* Firebase Realtime Database REST endpoint */
   var DATABASE_URL = "https://clientmanager-1122-default-rtdb.asia-southeast1.firebasedatabase.app";
 
-  var mode        = 'trackingId';
-  var tabs        = document.querySelectorAll('.s3-tab');
-  var searchInput = document.getElementById('searchInput');
-  var searchBtn   = document.getElementById('searchBtn');
-  var statusEl    = document.getElementById('status');
-  var resultsEl   = document.getElementById('results');
-  var hintEl      = document.getElementById('hint');
+  var mode = 'trackingId';
+  var tabs = document.querySelectorAll('.trk-tab');
+  var input = document.getElementById('searchInput');
+  var btn = document.getElementById('searchBtn');
+  var statusEl = document.getElementById('status');
+  var resultsEl = document.getElementById('results');
+  var hintEl = document.getElementById('hint');
 
-  var PLACEHOLDER = { trackingId: 'e.g. 360sol0001', cnic: 'e.g. 12345-6789012-3' };
+  var PH = { trackingId:'e.g. 360sol0001', cnic:'e.g. 12345-6789012-3' };
   var HINT = {
-    trackingId: 'Enter the tracking ID we gave you when your file was opened.',
-    cnic: 'Enter your CNIC exactly as it is registered with us, including dashes.'
+    trackingId:'Enter the tracking ID we gave you when your file was opened.',
+    cnic:'Enter your CNIC exactly as it is registered with us, including dashes.'
   };
+
+  var STAGES = [
+    { label:'Received',   note:'File opened' },
+    { label:'In progress', note:'Being processed' },
+    { label:'Completed',  note:'Work finished' }
+  ];
 
   tabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
-      tabs.forEach(function (t) {
-        t.classList.remove('active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected', 'true');
+      tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+      tab.classList.add('active'); tab.setAttribute('aria-selected','true');
       mode = tab.dataset.mode;
-      searchInput.placeholder = PLACEHOLDER[mode];
+      input.placeholder = PH[mode];
       hintEl.textContent = HINT[mode];
-      searchInput.value = '';
-      statusEl.textContent = '';
-      statusEl.classList.remove('err');
-      resultsEl.innerHTML = '';
-      searchInput.focus();
+      input.value = ''; resultsEl.innerHTML = '';
+      statusEl.textContent = ''; statusEl.classList.remove('err');
+      input.focus();
     });
   });
 
-  searchBtn.addEventListener('click', runSearch);
-  searchInput.addEventListener('keydown', function (e) {
-    if (e.key === 'Enter') runSearch();
-  });
+  btn.addEventListener('click', run);
+  input.addEventListener('keydown', function (e) { if (e.key === 'Enter') run(); });
 
-  function esc(str) {
-    return String(str == null ? '' : str).replace(/[&<>"']/g, function (c) {
-      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  function esc(s){
+    return String(s==null?'':s).replace(/[&<>"']/g,function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
     });
   }
+  function money(n){ return 'PKR ' + Number(n||0).toLocaleString('en-PK'); }
 
-  function statusClass(s) {
-    if (s === 'Completed') return 'st-completed';
-    if (s === 'In Progress') return 'st-inprogress';
-    return 'st-notstarted';
+  /* Not Started = 0, In Progress = 1, Completed = 2 */
+  function stageIndex(s){
+    if (s === 'Completed') return 2;
+    if (s === 'In Progress') return 1;
+    return 0;
   }
-  function payClass(p) {
-    if (p === 'PAID') return 'pay-paid';
-    if (p === 'PARTIALLY PAID') return 'pay-partially';
-    return 'pay-unpaid';
-  }
-
-  /* Show only the last 4 digits of a CNIC in results.
-     Delete this function and use esc(entry.cnic) below to show it in full. */
-  function maskCnic(cnic) {
-    var s = String(cnic == null ? '' : cnic).trim();
-    if (!s) return 'N/A';
-    var digits = s.replace(/\D/g, '');
-    if (digits.length < 4) return '••••';
-    return '•••••-•••••••-' + digits.slice(-1) + '  (ends ' + digits.slice(-4) + ')';
+  function payIndex(p){
+    if (p === 'PAID') return 2;
+    if (p === 'PARTIALLY PAID') return 1;
+    return 0;
   }
 
-  function money(n) {
-    return 'PKR ' + Number(n || 0).toLocaleString('en-PK');
+  /* show only the last 4 digits of the CNIC */
+  function maskCnic(c){
+    var d = String(c==null?'':c).replace(/\D/g,'');
+    if (!d) return 'N/A';
+    if (d.length < 4) return '••••';
+    return '•••••-•••••••-• (ends ' + d.slice(-4) + ')';
   }
 
-  function render(entry) {
-    var total   = Number(entry.totalPayment || 0);
-    var paid    = Number(entry.paidAmount || 0);
-    var pending = Number(entry.pendingAmount != null ? entry.pendingAmount : (total - paid));
+  var TICK = '<svg viewBox="0 0 24 24" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>';
 
-    return '' +
-      '<article class="s3-result">' +
-        '<div class="s3-result-top">' +
-          '<div class="s3-result-id"><span>Tracking ID</span>' + esc(entry.trackingId) + '</div>' +
-          '<span class="s3-pill ' + statusClass(entry.serviceStatus) + '">' + esc(entry.serviceStatus) + '</span>' +
-        '</div>' +
-        '<div class="s3-result-body">' +
-          '<div class="s3-line"><b>Client name</b><span>' + esc(entry.clientName) + '</span></div>' +
-          '<div class="s3-line"><b>CNIC</b><span>' + esc(maskCnic(entry.cnic)) + '</span></div>' +
-          '<div class="s3-line"><b>Service</b><span>' + esc(entry.serviceName) + '</span></div>' +
-          '<div class="s3-line"><b>File opened</b><span>' + esc(entry.serviceCreatedDate) + '</span></div>' +
-          '<div class="s3-line"><b>Payment status</b>' +
-            '<span class="s3-pill ' + payClass(entry.paymentStatus) + '">' + esc(entry.paymentStatus) + '</span>' +
-          '</div>' +
-          (entry.paidAmountDate
-            ? '<div class="s3-line"><b>Last payment</b><span>' + esc(entry.paidAmountDate) + '</span></div>'
-            : '') +
-          '<div class="s3-amounts">' +
-            '<div class="s3-amount"><b>Total</b><span>' + money(total) + '</span></div>' +
-            '<div class="s3-amount paid"><b>Paid</b><span>' + money(paid) + '</span></div>' +
-            '<div class="s3-amount due"><b>Pending</b><span>' + money(pending) + '</span></div>' +
-          '</div>' +
-        '</div>' +
-      '</article>';
+  function stagesHtml(idx){
+    var fill = idx <= 0 ? '0%' : (idx === 1 ? '50%' : '100%');
+    var nodes = STAGES.map(function (st, i) {
+      var cls = i < idx ? 'done' : (i === idx ? 'now' : '');
+      if (idx === 2 && i === 2) cls = 'done';
+      return '<div class="trk-node ' + cls + '">' +
+               '<div class="trk-dot">' + (i < idx || (idx===2 && i===2) ? TICK : '') + '</div>' +
+               '<b>' + st.label + '</b><span>' + st.note + '</span>' +
+             '</div>';
+    }).join('');
+    return '<div class="trk-stages">' +
+             '<div class="trk-stage-head">Service progress</div>' +
+             '<div class="trk-track" style="--fill:' + fill + '">' + nodes + '</div>' +
+           '</div>';
   }
 
-  function setStatus(text, isError) {
-    statusEl.textContent = text;
-    statusEl.classList.toggle('err', !!isError);
+  function payHtml(total, paid, pending){
+    var pct = total > 0 ? Math.min(100, Math.round((paid / total) * 100)) : 0;
+    return '<div class="trk-pay">' +
+             '<div class="trk-pay-top">' +
+               '<b>Payment progress</b>' +
+               '<div class="trk-pct">' + pct + '%<small>settled</small></div>' +
+             '</div>' +
+             '<div class="trk-bar' + (pct >= 100 ? ' full' : '') + '"><i style="--pct:' + pct + '%"></i></div>' +
+             '<div class="trk-bar-legend">' +
+               '<span><s>' + money(paid) + '</s> paid</span>' +
+               '<span><s>' + money(pending) + '</s> remaining</span>' +
+             '</div>' +
+           '</div>';
   }
 
-  async function runSearch() {
-    var query = searchInput.value.trim();
+  function render(e){
+    var total = Number(e.totalPayment || 0);
+    var paid = Number(e.paidAmount || 0);
+    var pending = Number(e.pendingAmount != null ? e.pendingAmount : (total - paid));
+    var si = stageIndex(e.serviceStatus);
+    var pi = payIndex(e.paymentStatus);
+
+    return '<article class="trk-res">' +
+      '<div class="trk-res-top">' +
+        '<div class="trk-id"><b>Tracking ID</b>' + esc(e.trackingId) + '</div>' +
+        '<span class="trk-pill st-' + si + '">' + esc(e.serviceStatus) + '</span>' +
+      '</div>' +
+      stagesHtml(si) +
+      payHtml(total, paid, pending) +
+      '<div class="trk-amounts">' +
+        '<div class="trk-amt"><b>Total</b><span>' + money(total) + '</span></div>' +
+        '<div class="trk-amt p"><b>Paid</b><span>' + money(paid) + '</span></div>' +
+        '<div class="trk-amt d"><b>Pending</b><span>' + money(pending) + '</span></div>' +
+      '</div>' +
+      '<div class="trk-rows">' +
+        '<div class="trk-line"><b>Client name</b><span>' + esc(e.clientName) + '</span></div>' +
+        '<div class="trk-line"><b>CNIC</b><span>' + esc(maskCnic(e.cnic)) + '</span></div>' +
+        '<div class="trk-line"><b>Service</b><span>' + esc(e.serviceName) + '</span></div>' +
+        '<div class="trk-line"><b>File opened</b><span>' + esc(e.serviceCreatedDate) + '</span></div>' +
+        '<div class="trk-line"><b>Payment status</b>' +
+          '<span class="trk-pill pay-' + pi + '">' + esc(e.paymentStatus) + '</span></div>' +
+        (e.paidAmountDate
+          ? '<div class="trk-line"><b>Last payment</b><span>' + esc(e.paidAmountDate) + '</span></div>'
+          : '') +
+      '</div>' +
+    '</article>';
+  }
+
+  function setStatus(t, isErr){
+    statusEl.textContent = t;
+    statusEl.classList.toggle('err', !!isErr);
+  }
+
+  async function run(){
+    var q = input.value.trim();
     resultsEl.innerHTML = '';
-
-    if (!query) {
-      setStatus(mode === 'trackingId'
-        ? 'Please enter your tracking ID.'
-        : 'Please enter your CNIC.', true);
+    if (!q) {
+      setStatus(mode === 'trackingId' ? 'Please enter your tracking ID.' : 'Please enter your CNIC.', true);
       return;
     }
 
-    searchBtn.disabled = true;
+    btn.disabled = true;
     setStatus('Searching…', false);
 
     try {
       var field = (mode === 'trackingId') ? 'trackingId' : 'cnic';
       var url = DATABASE_URL + '/publicLookup.json'
               + '?orderBy=' + encodeURIComponent('"' + field + '"')
-              + '&equalTo=' + encodeURIComponent('"' + query + '"');
+              + '&equalTo=' + encodeURIComponent('"' + q + '"');
 
       var res = await fetch(url);
       if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -219,15 +506,22 @@
       }
 
       var entries = Object.keys(data).map(function (k) { return data[k]; });
-      setStatus(entries.length === 1
-        ? 'Found 1 file.'
-        : 'Found ' + entries.length + ' files.', false);
+      setStatus(entries.length === 1 ? 'Found 1 file.' : 'Found ' + entries.length + ' files.', false);
       resultsEl.innerHTML = entries.map(render).join('');
+
+      /* let the bars animate from zero after paint */
+      requestAnimationFrame(function () {
+        resultsEl.querySelectorAll('.trk-bar i').forEach(function (el) {
+          var w = el.style.getPropertyValue('--pct');
+          el.style.setProperty('--pct', '0%');
+          requestAnimationFrame(function () { el.style.setProperty('--pct', w); });
+        });
+      });
 
     } catch (err) {
       setStatus('We could not reach the system just now. Please try again shortly, or message us on WhatsApp.', true);
     } finally {
-      searchBtn.disabled = false;
+      btn.disabled = false;
     }
   }
 })();
