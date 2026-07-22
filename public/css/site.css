@@ -17,7 +17,7 @@
      photos.
      ------------------------------------------------------------------ */
   --img-about:url('/img/about.webp');
-  --img-ceo:none;           /* url('/img/ceo.jpg')  800x1000 — use a real photo only */
+  --img-ceo:url('/img/team-2.webp');   /* Usama Tehmas — founder message section */
   --img-contact:url('/img/hero-team.webp');  /* stand-in — swap for your real office photo */
 
   --img-uk:url('/img/uk.webp');
@@ -27,9 +27,13 @@
   --img-italy:url('/img/italy.webp');
   --img-poland:url('/img/poland.webp');
 
-  --img-t1:none;            /* url('/img/team-1.jpg')      600x750 portraits */
-  --img-t2:none; --img-t3:none; --img-t4:none;
-  --img-t5:none; --img-t6:none; --img-t7:none; --img-t8:none;
+  /* leadership — live */
+  --img-t1:url('/img/team-1.webp');   /* Armaghan Tahir, CTO */
+  --img-t2:url('/img/team-2.webp');   /* CEO & Founder */
+  --img-t3:url('/img/team-3.webp');   /* COO */
+  /* department staff — awaiting photos, fall back to the teal gradient */
+  --img-t4:none; --img-t5:none; --img-t6:none;
+  --img-t7:none; --img-t8:none;
 
   /* page heroes */
   --img-hero-home:url('/img/hero-home.webp');
