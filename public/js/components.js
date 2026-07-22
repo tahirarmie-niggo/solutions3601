@@ -9,9 +9,13 @@ const FOOTER_HTML = '<footer><div class="footer-grid"><div class="footer-brand">
   if (!root.classList.contains('s3-loading')) return;
   document.body.insertAdjacentHTML('afterbegin', LOADER_HTML);
 
-  var MIN_MS = 1400;                // guaranteed minimum display time
-  if (sessionStorage.getItem('s3seen')) MIN_MS = 0;   // only full loader on first view
-  else sessionStorage.setItem('s3seen', '1');
+  var MIN_MS;
+  if (sessionStorage.getItem('s3seen')) {
+    MIN_MS = 1400;                      // every later page change or refresh
+  } else {
+    MIN_MS = 2600;                      // first load of the session
+    sessionStorage.setItem('s3seen', '1');
+  }
 
   var start = Date.now();
   var done = false;
